@@ -1,1696 +1,669 @@
 <!DOCTYPE html>
-<html lang="es-VE">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VarietyVida | Gourmet Venezolano de Excelencia</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Variety Vida · Productos artesanales</title>
+    <!-- Fuente moderna e íconos -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="icon" href="logovarietyvida.jpeg" type="image/jpeg">
-    <meta name="description" content="VarietyVida - Productos gourmet venezolanos: postres artesanales, carnes premium, charcutería selecta y preparaciones para eventos. Calidad excepcional y sabor inigualable.">
-    <meta name="keywords" content="gourmet venezolano, carne premium, postres artesanales, charcutería, eventos, alimentos calidad, comida tradicional">
-    <meta name="author" content="VarietyVida">
-    <!-- Open Graph para redes sociales -->
-    <meta property="og:title" content="VarietyVida | Gourmet Venezolano de Excelencia">
-    <meta property="og:description" content="Descubre nuestra selección gourmet: postres artesanales, carnes premium, charcutería selecta y preparaciones para eventos.">
-    <meta property="og:image" content="logovarietyvida.jpeg">
-    <meta property="og:type" content="website">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Librería para generar QR (pago móvil) -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
     <style>
-        /* ============ VARIABLES Y RESET ============ */
-        :root {
-            /* Paleta corporativa - Rojo elegante */
-            --primary-red: #9E1B1B;
-            --primary-red-dark: #7A0000;
-            --primary-red-light: #C62828;
-            --primary-red-bg: rgba(158, 27, 27, 0.05);
-            --primary-red-bg-light: rgba(158, 27, 27, 0.02);
-            --white: #FFFFFF;
-            --off-white: #FAFAFA;
-            --light-gray: #F5F5F5;
-            --medium-gray: #757575;
-            --dark-gray: #212121;
-            --black: #000000;
-            --success: #2E7D32;
-            --warning: #FF9800;
-            
-            /* Sombras y efectos */
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
-            --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.15);
-            --border-radius-sm: 6px;
-            --border-radius-md: 12px;
-            --border-radius-lg: 20px;
-            --border-radius-xl: 28px;
-            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            
-            /* Espaciado */
-            --spacing-xs: 8px;
-            --spacing-sm: 16px;
-            --spacing-md: 24px;
-            --spacing-lg: 40px;
-            --spacing-xl: 64px;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 100px;
-        }
-
         body {
             font-family: 'Inter', sans-serif;
-            color: var(--dark-gray);
-            line-height: 1.7;
-            background-color: var(--white);
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            background-color: #fef8f7;  /* fondo muy suave */
+            color: #2d2d2d;
+            line-height: 1.5;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: var(--spacing-md);
-            color: var(--dark-gray);
+        /* Paleta rojo/blanco - rojo corporativo no brillante */
+        :root {
+            --rojo: #b3422d;     /* rojo terroso / vino */
+            --rojo-claro: #e6b2a8;
+            --blanco: #ffffff;
+            --gris-fondo: #f5f0ef;
+            --texto-oscuro: #2e2e2e;
+            --sombra-suave: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.02);
         }
 
         .container {
-            width: 100%;
-            max-width: 1280px;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 0 var(--spacing-md);
+            padding: 0 20px;
         }
 
-        section {
-            padding: var(--spacing-xl) 0;
-            position: relative;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.8rem;
-            margin-bottom: var(--spacing-lg);
-            position: relative;
-            letter-spacing: -0.5px;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-red), var(--primary-red-light));
-            border-radius: 2px;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 16px 36px;
-            background-color: var(--primary-red);
-            color: var(--white);
-            border: none;
-            border-radius: var(--border-radius-lg);
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all var(--transition-normal);
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            letter-spacing: 0.3px;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            box-shadow: var(--shadow-md);
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left var(--transition-slow);
-            z-index: -1;
-        }
-
-        .btn:hover {
-            background-color: var(--primary-red-dark);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .btn:hover::before {
-            left: 100%;
-        }
-
-        .btn-whatsapp {
-            background-color: #25D366;
-        }
-
-        .btn-whatsapp:hover {
-            background-color: #128C7E;
-        }
-
-        /* ============ HEADER ============ */
+        /* Header */
         header {
-            background-color: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            box-shadow: var(--shadow-sm);
-            position: fixed;
-            width: 100%;
+            background-color: var(--blanco);
+            box-shadow: var(--sombra-suave);
+            position: sticky;
             top: 0;
-            z-index: 1000;
-            transition: all var(--transition-normal);
+            z-index: 100;
+            border-bottom: 3px solid var(--rojo);
         }
 
-        .header-container {
+        .header-content {
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            align-items: center;
-            padding: 20px var(--spacing-md);
+            padding: 0.8rem 0;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
-        .logo {
+        .logo-area {
             display: flex;
             align-items: center;
-            gap: 16px;
-            text-decoration: none;
+            gap: 12px;
         }
 
-        .logo img {
+        .logo-area img {
             height: 60px;
             width: auto;
-            object-fit: contain;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+            border-radius: 8px;
         }
 
-        .logo-text {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
+        .logo-area h1 {
             font-size: 1.8rem;
-            color: var(--primary-red);
+            font-weight: 700;
+            color: var(--rojo);
             letter-spacing: -0.5px;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 36px;
-        }
-
-        .nav-links a {
+        .header-whatsapp a {
+            background-color: #25D366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 40px;
             text-decoration: none;
-            color: var(--dark-gray);
-            font-weight: 500;
-            font-size: 1.05rem;
-            transition: color var(--transition-fast);
-            position: relative;
-            padding: 6px 0;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary-red);
-            transition: width var(--transition-normal);
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-red);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            font-size: 1.5rem;
-            background: none;
-            border: none;
-            color: var(--primary-red);
-            cursor: pointer;
-            z-index: 1001;
-            padding: 8px;
-            border-radius: var(--border-radius-sm);
-        }
-
-        /* ============ HERO SECTION ============ */
-        .hero {
-            padding-top: 140px;
-            padding-bottom: 100px;
-            background: linear-gradient(135deg, var(--off-white) 0%, var(--white) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 70%;
-            height: 140%;
-            background: radial-gradient(circle, var(--primary-red-bg) 0%, transparent 70%);
-            z-index: 0;
-        }
-
-        .hero-content {
+            font-weight: 600;
             display: flex;
-            flex-direction: column;
             align-items: center;
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
+            gap: 8px;
+            transition: 0.2s;
+            box-shadow: 0 4px 8px rgba(37, 211, 102, 0.2);
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: var(--spacing-md);
-            background: linear-gradient(135deg, var(--dark-gray) 0%, var(--primary-red) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: -1px;
-            line-height: 1.1;
+        .header-whatsapp a:hover {
+            background-color: #20b859;
+            transform: scale(1.02);
         }
 
-        .hero-subtitle {
-            font-size: 1.3rem;
-            color: var(--medium-gray);
-            margin-bottom: var(--spacing-lg);
-            max-width: 700px;
-            line-height: 1.8;
+        .header-whatsapp img {
+            height: 22px;
+            width: 22px;
+            filter: brightness(0) invert(1);
         }
 
-        .hero-btns {
+        /* Banner informativo */
+        .banner-info {
+            background-color: #fff6e5;
+            border-left: 6px solid var(--rojo);
+            padding: 16px 20px;
+            border-radius: 0 12px 12px 0;
+            margin: 25px 0 15px;
+            font-weight: 500;
+            color: #5a4a3e;
+            box-shadow: var(--sombra-suave);
             display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .banner-info i {
+            font-size: 2rem;
+            color: var(--rojo);
+        }
+
+        /* Conversor de tasa */
+        .tasa-card {
+            background-color: var(--blanco);
+            padding: 16px 24px;
+            border-radius: 60px;
+            display: inline-flex;
+            align-items: center;
             gap: 20px;
             flex-wrap: wrap;
-            justify-content: center;
-            margin-bottom: var(--spacing-xl);
+            box-shadow: var(--sombra-suave);
+            margin: 20px 0 30px;
+            border: 1px solid #f0cfc8;
         }
 
-        /* ============ CATEGORIES SECTION ============ */
-        .categories {
-            background-color: var(--white);
+        .tasa-card label {
+            font-weight: 600;
+            color: var(--rojo);
         }
 
-        .category-tabs {
+        .tasa-card input {
+            padding: 8px 16px;
+            border: 1px solid #ddd;
+            border-radius: 40px;
+            font-size: 1rem;
+            width: 140px;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        .tasa-card input:focus {
+            border-color: var(--rojo);
+            box-shadow: 0 0 0 3px rgba(179, 66, 45, 0.1);
+        }
+
+        .tasa-card span {
+            background: #f0f0f0;
+            padding: 5px 15px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+        }
+
+        /* Categorías - navegación */
+        .nav-cats {
             display: flex;
-            justify-content: center;
             flex-wrap: wrap;
             gap: 12px;
-            margin-bottom: var(--spacing-xl);
+            justify-content: center;
+            margin: 30px 0 20px;
         }
 
-        .category-tab {
-            padding: 14px 28px;
-            background-color: var(--white);
-            border: 2px solid var(--light-gray);
-            border-radius: var(--border-radius-lg);
+        .nav-cats a {
+            background-color: var(--blanco);
+            color: var(--texto-oscuro);
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 40px;
             font-weight: 600;
-            cursor: pointer;
-            transition: all var(--transition-normal);
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1rem;
+            box-shadow: var(--sombra-suave);
+            transition: 0.2s;
+            border: 1px solid transparent;
         }
 
-        .category-tab:hover {
-            border-color: var(--primary-red);
-            color: var(--primary-red);
-            transform: translateY(-2px);
+        .nav-cats a:hover {
+            border-color: var(--rojo);
+            color: var(--rojo);
         }
 
-        .category-tab.active {
-            background-color: var(--primary-red);
-            color: var(--white);
-            border-color: var(--primary-red);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
+        /* Cards de categorías y productos */
+        .categoria {
+            margin: 50px 0;
         }
 
-        .products-grid {
+        .categoria h2 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--rojo);
+            margin-bottom: 20px;
+            padding-left: 10px;
+            border-left: 8px solid var(--rojo);
+        }
+
+        .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: var(--spacing-lg);
-            opacity: 1;
-            transition: opacity var(--transition-normal);
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px;
         }
 
         .product-card {
-            background-color: var(--white);
-            border-radius: var(--border-radius-lg);
+            background-color: var(--blanco);
+            border-radius: 24px;
             overflow: hidden;
-            box-shadow: var(--shadow-md);
-            transition: all var(--transition-normal);
+            box-shadow: var(--sombra-suave);
+            transition: all 0.25s ease;
+            border: 1px solid #fceae5;
             display: flex;
             flex-direction: column;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            height: 100%;
-            position: relative;
         }
 
         .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-6px);
+            box-shadow: 0 25px 30px -12px rgba(179, 66, 45, 0.15);
+            border-color: var(--rojo-claro);
         }
 
-        .product-image {
-            height: 240px;
-            overflow: hidden;
-            background-color: var(--light-gray);
-            position: relative;
-        }
-
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform var(--transition-slow);
-        }
-
-        .product-card:hover .product-image img {
-            transform: scale(1.05);
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 16px;
-            left: 16px;
-            background-color: var(--primary-red);
-            color: white;
-            padding: 6px 14px;
-            border-radius: var(--border-radius-lg);
-            font-size: 0.8rem;
-            font-weight: 600;
-            z-index: 2;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .product-img {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            background-color: #f7eae7;
         }
 
         .product-info {
-            padding: var(--spacing-lg);
-            flex-grow: 1;
+            padding: 18px 16px 16px;
+            flex: 1;
             display: flex;
             flex-direction: column;
         }
 
-        .product-name {
-            font-size: 1.5rem;
-            margin-bottom: var(--spacing-sm);
-            color: var(--dark-gray);
-            line-height: 1.3;
+        .product-info h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #1f1f1f;
         }
 
-        .product-description {
-            color: var(--medium-gray);
-            margin-bottom: var(--spacing-md);
-            flex-grow: 1;
-            font-size: 1rem;
-            line-height: 1.6;
+        .product-desc {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
         }
 
-        .product-price {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-bottom: var(--spacing-lg);
-        }
-
-        .price-usd {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary-red);
-        }
-
-        .price-bs {
-            font-size: 1.1rem;
-            color: var(--medium-gray);
-            background-color: var(--primary-red-bg);
-            padding: 10px 16px;
-            border-radius: var(--border-radius-md);
+        .precios {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            border-left: 3px solid var(--primary-red);
+            align-items: baseline;
+            margin-top: auto;
+            padding-top: 12px;
+            border-top: 1px dashed #ddd;
         }
 
-        .price-converted {
-            font-size: 1.2rem;
-            color: var(--primary-red);
+        .precio-usd {
             font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--rojo);
         }
 
-        /* ============ PAYMENT METHODS ============ */
-        .payment-methods {
-            background-color: var(--off-white);
-        }
-
-        .payment-methods-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--spacing-lg);
-            margin-bottom: var(--spacing-xl);
-        }
-
-        .payment-method {
-            background-color: var(--white);
-            border-radius: var(--border-radius-lg);
-            padding: var(--spacing-xl) var(--spacing-lg);
-            text-align: center;
-            box-shadow: var(--shadow-md);
-            transition: all var(--transition-normal);
-            border-top: 4px solid var(--primary-red);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .payment-method:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .payment-logo {
-            height: 80px;
-            margin-bottom: var(--spacing-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .payment-logo img {
-            max-height: 100%;
-            max-width: 100%;
-            object-fit: contain;
-            transition: transform var(--transition-normal);
-        }
-
-        .payment-method:hover .payment-logo img {
-            transform: scale(1.05);
-        }
-
-        .payment-title {
-            font-size: 1.6rem;
-            margin-bottom: var(--spacing-md);
-            color: var(--dark-gray);
-        }
-
-        .payment-details {
-            color: var(--medium-gray);
-            margin-bottom: var(--spacing-lg);
-            font-size: 1rem;
-            line-height: 1.6;
-            flex-grow: 1;
-        }
-
-        .qr-container {
-            margin-top: var(--spacing-md);
-            padding: 18px;
-            background-color: var(--white);
-            border-radius: var(--border-radius-md);
-            display: inline-block;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .qr-container img {
-            width: 180px;
-            height: 180px;
-            object-fit: contain;
-        }
-
-        /* ============ LOCATION SECTION ============ */
-        .location {
-            background-color: var(--white);
-            text-align: center;
-        }
-
-        .location-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .location-description {
-            margin-bottom: var(--spacing-xl);
-            font-size: 1.15rem;
-            color: var(--medium-gray);
-            line-height: 1.7;
-        }
-
-        .location-map {
-            border-radius: var(--border-radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            margin-bottom: var(--spacing-lg);
-            position: relative;
-            height: 450px;
-            background-color: var(--light-gray);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            gap: 20px;
-            transition: all var(--transition-normal);
-        }
-
-        .location-map:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .location-map img {
-            width: 120px;
-            height: auto;
-            opacity: 0.7;
-        }
-
-        .map-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            gap: var(--spacing-md);
-            text-align: center;
-            padding: var(--spacing-xl);
-        }
-
-        .map-overlay h3 {
-            color: var(--primary-red);
-            font-size: 2rem;
-        }
-
-        .map-overlay p {
-            color: var(--medium-gray);
-            font-size: 1.1rem;
-            max-width: 600px;
-        }
-
-        /* ============ WHATSAPP FLOAT ============ */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 70px;
-            height: 70px;
-            background-color: #25D366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: var(--shadow-lg);
-            z-index: 999;
-            transition: all var(--transition-normal);
-            text-decoration: none;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
-            50% { box-shadow: 0 4px 30px rgba(37, 211, 102, 0.7); }
-            100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            background-color: #128C7E;
-            animation: none;
-        }
-
-        .whatsapp-float img {
-            width: 40px;
-            height: 40px;
-            object-fit: contain;
-        }
-
-        /* ============ FOOTER ============ */
-        footer {
-            background-color: var(--dark-gray);
-            color: var(--white);
-            padding: var(--spacing-xl) 0 var(--spacing-md);
-            position: relative;
-        }
-
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-red), var(--primary-red-light));
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--spacing-xl);
-            margin-bottom: var(--spacing-xl);
-        }
-
-        .footer-logo img {
-            height: 70px;
-            margin-bottom: var(--spacing-md);
-            transition: transform var(--transition-normal);
-        }
-
-        .footer-logo img:hover {
-            transform: scale(1.05);
-        }
-
-        .footer-about p {
-            margin-bottom: var(--spacing-lg);
-            color: #BDBDBD;
-            line-height: 1.7;
-            font-size: 1.05rem;
-        }
-
-        .footer-links h3, .footer-contact h3 {
-            font-size: 1.4rem;
-            margin-bottom: var(--spacing-lg);
-            color: var(--white);
-            position: relative;
-            display: inline-block;
-        }
-
-        .footer-links h3::after, .footer-contact h3::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 40px;
-            height: 3px;
-            background-color: var(--primary-red);
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links a {
-            color: #BDBDBD;
-            text-decoration: none;
-            transition: all var(--transition-fast);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1.05rem;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary-red-light);
-            gap: 18px;
-        }
-
-        .footer-contact p {
-            color: #BDBDBD;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1.05rem;
-        }
-
-        .footer-contact a {
-            color: #BDBDBD;
-            text-decoration: none;
-            transition: color var(--transition-fast);
-        }
-
-        .footer-contact a:hover {
-            color: var(--primary-red-light);
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 16px;
-            margin-top: var(--spacing-lg);
-        }
-
-        .footer-social a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            background-color: #424242;
-            border-radius: 50%;
-            color: var(--white);
-            font-size: 1.2rem;
-            transition: all var(--transition-normal);
-        }
-
-        .footer-social a:hover {
-            background-color: var(--primary-red);
-            transform: translateY(-5px);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #424242;
-            padding-top: var(--spacing-lg);
-            text-align: center;
-            color: #9E9E9E;
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        .footer-bottom a {
-            color: var(--primary-red-light);
-            text-decoration: none;
-            transition: color var(--transition-fast);
+        .precio-bs {
+            background: #f2f2f2;
+            padding: 4px 10px;
+            border-radius: 40px;
+            font-size: 0.9rem;
             font-weight: 500;
         }
 
-        .footer-bottom a:hover {
-            color: var(--primary-red);
+        /* Sección métodos de pago */
+        .pagos-section {
+            background: linear-gradient(145deg, #fff6f3, #fff);
+            border-radius: 40px;
+            padding: 40px 30px;
+            margin: 60px 0;
+            box-shadow: var(--sombra-suave);
         }
 
-        .nexus-credit {
+        .pagos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .pago-item {
+            background: var(--blanco);
+            border-radius: 28px;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            border: 1px solid #f3d9d2;
+        }
+
+        .pago-item img {
+            max-height: 60px;
+            margin-bottom: 20px;
+            object-fit: contain;
+        }
+
+        .pago-item .qr-container {
+            margin: 15px auto;
+            width: 140px;
+            height: 140px;
+            background: #eee;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 16px;
-            margin-top: var(--spacing-md);
-            padding-top: var(--spacing-md);
-            border-top: 1px solid #424242;
+            border-radius: 20px;
+            overflow: hidden;
         }
 
-        .nexus-credit img {
-            height: 40px;
-            opacity: 0.9;
-            transition: all var(--transition-normal);
+        .pago-item small {
+            display: block;
+            margin-top: 12px;
+            color: #555;
+            font-weight: 500;
         }
 
-        .nexus-credit img:hover {
-            opacity: 1;
-            transform: scale(1.05);
+        /* Botón mapa */
+        .mapa-boton {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--rojo);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin: 30px 0 20px;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
         }
 
-        /* ============ RESPONSIVE DESIGN ============ */
-        @media (max-width: 1100px) {
-            .hero h1 {
-                font-size: 3rem;
-            }
-            
-            .section-title {
-                font-size: 2.5rem;
-            }
+        .mapa-boton:hover {
+            background-color: #9e3b28;
+            transform: translateY(-2px);
         }
 
-        @media (max-width: 992px) {
-            .nav-links {
-                gap: 28px;
-            }
-            
-            .hero {
-                padding-top: 120px;
-                padding-bottom: 80px;
-            }
-            
-            .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-                gap: var(--spacing-md);
-            }
-            
-            .payment-methods-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            }
+        /* Footer */
+        footer {
+            background-color: #1d1d1d;
+            color: #ccc;
+            padding: 40px 0 20px;
+            margin-top: 70px;
+            border-top: 5px solid var(--rojo);
         }
 
-        @media (max-width: 768px) {
-            .header-container {
-                padding: 16px var(--spacing-md);
-            }
-            
-            .nav-links {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100vh;
-                background-color: rgba(255, 255, 255, 0.98);
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                padding: var(--spacing-xl) 0;
-                gap: 32px;
-                transform: translateX(-100%);
-                transition: transform var(--transition-normal);
-                z-index: 999;
-                backdrop-filter: blur(10px);
-            }
-            
-            .nav-links.active {
-                transform: translateX(0);
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .hero {
-                padding-top: 100px;
-                padding-bottom: 60px;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .section-title {
-                font-size: 2.2rem;
-            }
-            
-            section {
-                padding: var(--spacing-lg) 0;
-            }
-            
-            .whatsapp-float {
-                width: 60px;
-                height: 60px;
-                bottom: 20px;
-                right: 20px;
-            }
-            
-            .whatsapp-float img {
-                width: 35px;
-                height: 35px;
-            }
-            
-            .location-map {
-                height: 400px;
-            }
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
         }
 
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero-btns {
-                flex-direction: column;
-                width: 100%;
-            }
-            
-            .hero-btns .btn {
-                width: 100%;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .category-tabs {
-                gap: 10px;
-            }
-            
-            .category-tab {
-                padding: 12px 20px;
-                font-size: 0.95rem;
-            }
-            
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: var(--spacing-lg);
-            }
-            
-            .payment-methods-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .location-map {
-                height: 350px;
-            }
-            
-            .map-overlay {
-                padding: var(--spacing-lg);
-            }
-            
-            .whatsapp-float {
-                width: 55px;
-                height: 55px;
-                bottom: 15px;
-                right: 15px;
-            }
-            
-            .whatsapp-float img {
-                width: 32px;
-                height: 32px;
-            }
+        .credits {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
-        @media (max-width: 400px) {
-            .logo-text {
-                font-size: 1.5rem;
-            }
-            
-            .hero h1 {
-                font-size: 1.9rem;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .product-card {
-                margin: 0 auto;
-                max-width: 100%;
-            }
+        .credits a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #2f2f2f;
+            padding: 8px 18px;
+            border-radius: 40px;
+            transition: 0.2s;
         }
 
-        /* ============ ANIMACIONES Y EFECTOS ============ */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        .credits a:hover {
+            background: var(--rojo);
         }
 
-        .fade-in {
-            animation: fadeIn 0.8s ease forwards;
+        .credits img {
+            height: 28px;
+            width: auto;
+            border-radius: 20px;
         }
-        
-        /* Scroll personalizado */
-        ::-webkit-scrollbar {
-            width: 10px;
+
+        .venezuela-icon {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #aaa;
         }
-        
-        ::-webkit-scrollbar-track {
-            background: var(--light-gray);
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary-red);
-            border-radius: 5px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-red-dark);
-        }
-        
-        /* Efecto de carga para imágenes */
-        .image-loading {
-            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-            background-size: 200% 100%;
-            animation: loading 1.5s infinite;
-        }
-        
-        @keyframes loading {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
+
+        .venezuela-icon img {
+            height: 24px;
         }
     </style>
 </head>
 <body>
-    <!-- WhatsApp flotante -->
-    <a href="https://wa.me/584244525765?text=Hola%20VarietyVida,%20me%20interesan%20sus%20productos%20gourmet" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
-        <img src="logowhatsapp.png" alt="WhatsApp" loading="lazy">
-    </a>
 
-    <!-- Header y navegación -->
-    <header id="mainHeader">
-        <div class="container header-container">
-            <a href="#inicio" class="logo">
-                <img src="logovarietyvida.jpeg" alt="VarietyVida Logo" id="mainLogo" loading="eager">
-                <div class="logo-text">VarietyVida</div>
+<header>
+    <div class="container header-content">
+        <div class="logo-area">
+            <img src="logovarietyvida.jpeg" alt="Variety Vida Logo" onerror="this.src='https://via.placeholder.com/60x60?text=Logo'">
+            <h1>Variety Vida</h1>
+        </div>
+        <div class="header-whatsapp">
+            <a href="https://wa.me/584244525765?text=¡Hola!%20Quiero%20hacer%20un%20pedido" target="_blank">
+                <img src="logowhatsapp.png" alt="WhatsApp" onerror="this.src='https://via.placeholder.com/22x22?text=WA'"> +58 424-4525765
             </a>
-            
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menú de navegación" aria-expanded="false">
-                <i class="fas fa-bars"></i>
-            </button>
-            
-            <nav class="nav-links" id="navLinks" role="navigation">
-                <a href="#inicio">Inicio</a>
-                <a href="#categorias">Productos</a>
-                <a href="#pagos">Métodos de Pago</a>
-                <a href="#ubicacion">Ubicación</a>
-                <a href="#contacto">Contacto</a>
-            </nav>
         </div>
-    </header>
+    </div>
+</header>
 
-    <!-- Sección Hero -->
-    <section class="hero" id="inicio">
-        <div class="container">
-            <div class="hero-content fade-in">
-                <h1>Excelencia Gourmet en Cada Producto</h1>
-                <p class="hero-subtitle">En VarietyVida seleccionamos cuidadosamente los mejores ingredientes para ofrecerte una experiencia gastronómica única. Desde postres artesanales hasta cortes premium de carne, cada producto refleja nuestro compromiso con la calidad y el sabor auténtico venezolano.</p>
-                
-                <div class="hero-btns">
-                    <a href="#categorias" class="btn">Explorar Catálogo</a>
-                    <a href="https://wa.me/584244525765?text=Hola%20VarietyVida,%20me%20interesan%20sus%20productos%20gourmet" class="btn btn-whatsapp" target="_blank">
-                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-                    </a>
-                </div>
-            </div>
+<main class="container">
+
+    <!-- Banner disponibilidad -->
+    <div class="banner-info">
+        <i class="fas fa-box-open"></i>
+        <div>
+            <strong>📦 Pedidos sujetos a disponibilidad de stock.</strong> Previa consulta con el vendedor. Algunos productos requieren 24h de anticipación. Nuestro equipo de atención te brindará toda la información.
         </div>
-    </section>
+    </div>
 
-    <!-- Categorías de Productos -->
-    <section class="categories" id="categorias">
-        <div class="container">
-            <h2 class="section-title">Nuestra Selección Gourmet</h2>
-            
-            <div class="category-tabs">
-                <div class="category-tab active" data-category="postres">Postres y Dulces</div>
-                <div class="category-tab" data-category="carniceria">Carnicería</div>
-                <div class="category-tab" data-category="charcuteria">Charcutería</div>
-                <div class="category-tab" data-category="eventos">Eventos</div>
-            </div>
-            
-            <!-- Productos - Postres y Dulces -->
-            <div class="products-grid" id="postres-products">
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="product-badge">Postre Artesanal</div>
-                        <img src="jaleademango.jpg" alt="Dulce de Mango" loading="lazy">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Dulce de Mango</h3>
-                        <p class="product-description">Exquisito dulce de mango artesanal, elaborado con fruta fresca seleccionada y un balance perfecto de dulzor. Perfecto para acompañar postres o disfrutar como delicatessen.</p>
-                        <div class="product-price">
-                            <div class="price-usd">1.5 $ / unidad</div>
-                        </div>
-                        <a href="https://wa.me/584244525765?text=Hola%20VarietyVida,%20quiero%20pedir%20Dulce%20de%20Mango" class="btn" target="_blank">Pedir Ahora</a>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="product-badge">Premium</div>
-                        <img src="quesodecabra.jpg" alt="Queso de Cabra" loading="lazy">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Queso de Cabra</h3>
-                        <p class="product-description">Excelente producto natural, fresca y sin lactosa no te quedes sin el tuyo, encargalo ya </p>
-                        <div class="product-price">
-                            <div class="price-usd"> 11 $ / Kg</div>
-                        </div>
-                        <a href="https://wa.me/584244525765?text=Hola%20VarietyVida,%20quiero%20pedir%20Yogurt%20Casero" class="btn" target="_blank">Pedir Ahora</a>
-                    </div>
-                </div>
-            </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="product-badge">Premium</div>
-                        <img src="lechefrescadecabra.jpg" alt="Leche de Cabra" loading="lazy">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Leche de Cabra</h3>
-                        <p class="product-description">Excelente producto natural, fresca y sin lactosa no te quedes sin el tuyo, encargalo ya </p>
-                        <div class="product-price">
-                            <div class="price-usd">2.5 $ / Litro</div>
-                        </div>
-                        <a href="https://wa.me/584244525765?text=Hola%20VarietyVida,%20quiero%20pedir%20Yogurt%20Casero" class="btn" target="_blank">Pedir Ahora</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Productos - Carnicería (oculto inicialmente) -->
-            <div class="products-grid" id="carniceria-products" style="display: none;">
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="product-badge">Carne Premium</div>
-                        <img src="carnemolida.jpg" alt="Carne Molida" loading="lazy">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Carne Molida</h3>
-                        <p class="product-description">Carne de res molida premium, con la proporción ideal de grasa para máxima jugosidad. Perfecta para hamburguesas gourmet, pastel de carne o salsas boloñesa.</p>
-                        <div class="product-price">
-                            <div class="price-usd">12.5 $ / kg</div>
-                        </div>
-                        <a href="https://wa.me/584244525765?text=Hola%20VarietyVida,%20quiero%20pedir%20Carne%20Molida" class="btn" target="_blank">Pedir Ahora</a>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="product-badge">Corte Especial</div>
-                        <img src="carneparamechar.jpg" alt="Carne para Mech" loading="lazy">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Carne para Mech</h3>
-                        <p class="product-description">Corte especial seleccionado para mechar, con la textura y marmoleo perfectos para obtener una carne mechada jugosa y llena de sabor, como la tradición venezolana exige.</p>
-                        <div class="product-price">
-                            <div class="price-usd">12.5 $ / kg</div>
-                        </div>
-                        <a href="https://wa.me/584244525765?text=Hola%20VarietyVida,%20quiero%20pedir%20Carne%20para%20Mechar" class="btn" target="_blank">Pedir Ahora</a>
-                    </div>
-                </div>
+    <!-- Conversor Dólar / Bolívar -->
+    <div class="tasa-card">
+        <label for="tasa">🇻🇪 Tasa Bs/USD:</label>
+        <input type="number" id="tasa" value="36.50" step="0.01" min="1">
+        <span>Los precios en Bs se actualizan automáticamente</span>
+    </div>
 
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="product-badge">Corte Especial</div>
-                        <img src="carneenjulianas.jpg" alt="Carne en Julianas" loading="lazy">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Carne en Julianas</h3>
-                        <p class="product-description">Carne en Julianas con el mejor corte y sin grasa, para tu negocio, hogar y evento</p>
-                        <div class="product-price">
-                            <div class="price-usd">12.5 $ / kg</div>
-                        </div>
-                        <a href="https://wa.me/584244525765?text=Hola%20VarietyVida,%20quiero%20pedir%20Carne%20para%20Mechar" class="btn" target="_blank">Pedir Ahora</a>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="product-badge">Corte Premium</div>
-                        <img src="bisteck.png" alt="Bistec" loading="lazy">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Bistec</h3>
-                        <p class="product-description">Cortes finos de bistec, tiernos y con el marmoleo adecuado para sellado perfecto. Listos para la parrilla o sartén, ideales para una comida rápida pero de calidad gourmet.</p>
-                        <div class="product-price">
-                            <div class="price-usd">12.5 $ / kg</div>
-                        </div>
-                        <a href="https://wa.me/584244525765?text=Hola%20VarietyVida,%20quiero%20pedir%20Bistec" class="btn" target="_blank">Pedir Ahora</a>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="product-badge">Corte para Guisar</div>
-                        <img src="carneparaguisar.jpg" alt="Carne para Guisar" loading="lazy">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Carne para Guisar</h3>
-                        <p class="product-description">Cortes ideales para guisos y estofados, con la proporción de grasa que aporta sabor y textura. Se deshace perfectamente tras una cocción lenta, ideal para platos tradicionales.</p>
-                        <div class="product-price">
-                            <div class="price-usd">12.5 $ / kg</div>
-                        </div>
-                        <a href="https://wa.me/584244525765?text=Hola%20VarietyVida,%20quiero%20pedir%20Carne%20para%20Guisar" class="btn" target="_blank">Pedir Ahora</a>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="product-badge">Pollo Fresco</div>
-                        <img src="polloentero.png" alt="Pollo Entero" loading="lazy">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Pollo Entero</h3>
-                        <p class="product-description">Pollo fresco entero, criado de forma natural. Perfecto para asados, horneados o despieces para diversas preparaciones. Textura firme y sabor auténtico.</p>
-                        <div class="product-price">
-                            <div class="price-usd">5 $ / kg</div>
-                        </div>
-                        <a href="https://wa.me/584244525765?text=Hola%20VarietyVida,%20quiero%20pedir%20Pollo%20Entero" class="btn" target="_blank">Pedir Ahora</a>
+    <!-- Navegación rápida -->
+    <div class="nav-cats">
+        <a href="#postres">🍰 Postres & Dulces</a>
+        <a href="#carniceria">🥩 Carnicería</a>
+        <a href="#charcuteria">🥓 Charcutería</a>
+        <a href="#eventos">🎉 Eventos</a>
+        <a href="#pagos">💳 Métodos de pago</a>
+    </div>
+
+    <!-- CATEGORÍA: POSTRES Y DULCES -->
+    <section id="postres" class="categoria">
+        <h2>🍰 Postres y Dulces</h2>
+        <div class="product-grid">
+            <!-- Yogurt casero -->
+            <div class="product-card" data-precio="3.00">
+                <div class="product-img" style="background-image: url('yogurt.jpg')"></div>
+                <div class="product-info">
+                    <h3>Yogurt casero</h3>
+                    <div class="product-desc">500 gr · Sabores: Fresa, ciruelas pasas, Piña, Melocotón</div>
+                    <div class="precios">
+                        <span class="precio-usd">$3,00</span>
+                        <span class="precio-bs" id="bs-yogurt">Bs 109,50</span>
                     </div>
                 </div>
             </div>
-            
-            <!-- Productos - Charcutería (oculto inicialmente) -->
-            <div class="products-grid" id="charcuteria-products" style="display: none;">
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="product-badge">Embutido Artesanal</div>
-                        <img src="chorizo.jpg" alt="Chorizo" loading="lazy">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Chorizo</h3>
-                        <p class="product-description">Chorizo artesanal elaborado con especias seleccionadas y carne de calidad. Sabor intenso y auténtico, perfecto para parrillas, desayunos o como ingrediente en guisos.</p>
-                        <div class="product-price">
-                            <div class="price-usd">2 $ / kg</div>
-                        </div>
-                        <a href="https://wa.me/584244525765?text=Hola%20VarietyVida,%20quiero%20pedir%20Chorizo" class="btn" target="_blank">Pedir Ahora</a>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="product-badge">Embutido Selecto</div>
-                        <img src="salchicha.jpg" alt="Salchicha" loading="lazy">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Salchicha</h3>
-                        <p class="product-description">Salchichas frescas de alta calidad, elaboradas con carne seleccionada y un blend de especias equilibrado. Versátiles para desayunos, parrillas o comidas rápidas.</p>
-                        <div class="product-price">
-                            <div class="price-usd">1.8 $ / kg</div>
-                        </div>
-                        <a href="https://wa.me/584244525765?text=Hola%20VarietyVida,%20quiero%20pedir%20Salchicha" class="btn" target="_blank">Pedir Ahora</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Productos - Eventos (oculto inicialmente) -->
-            <div class="products-grid" id="eventos-products" style="display: none;">
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="product-badge">Pack Eventos</div>
-                        <img src="carnedehamburguesa.png" alt="Carne de Hamburguesa" loading="lazy">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Carne de Hamburguesa</h3>
-                        <p class="product-description">Pack de 6 unidades de carne para hamburguesa, preformadas y listas para la parrilla. Perfectas para eventos, reuniones familiares o celebraciones. Calidad garantizada.</p>
-                        <div class="product-price">
-                            <div class="price-usd">2 $ / pack (6 unidades)</div>
-                        </div>
-                        <a href="https://wa.me/584244525765?text=Hola%20VarietyVida,%20quiero%20pedir%20Carne%20de%20Hamburguesa" class="btn" target="_blank">Pedir Ahora</a>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="product-badge">Aperitivo Eventos</div>
-                        <img src="bolasdecarne.jpg" alt="Bolitas de Carne" loading="lazy">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Bolitas de Carne</h3>
-                        <p class="product-description">Exquisitas bolitas de carne sazonadas con especias selectas, ideales para fiestas, cócteles y eventos especiales. Fáciles de servir y siempre un éxito entre los invitados.</p>
-                        <div class="product-price">
-                            <div class="price-usd">5 $ / kg</div>
-                        </div>
-                        <a href="https://wa.me/584244525765?text=Hola%20VarietyVida,%20quiero%20pedir%20Bolitas%20de%20Carne" class="btn" target="_blank">Pedir Ahora</a>
+            <!-- Quesillo -->
+            <div class="product-card" data-precio="3.00">
+                <div class="product-img" style="background-image: url('quesillo.jpg')"></div>
+                <div class="product-info">
+                    <h3>Quesillo</h3>
+                    <div class="product-desc">Tradicional, 500 g</div>
+                    <div class="precios">
+                        <span class="precio-usd">$3,00</span>
+                        <span class="precio-bs">Bs 109,50</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Métodos de Pago -->
-    <section class="payment-methods" id="pagos">
-        <div class="container">
-            <h2 class="section-title">Métodos de Pago</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 50px; color: var(--medium-gray); font-size: 1.15rem;">
-                Facilitamos tu experiencia de compra con múltiples opciones de pago seguras y confiables.
-            </p>
-            
-            <div class="payment-methods-grid">
-                <!-- Pago Móvil -->
-                <div class="payment-method">
-                    <div class="payment-logo">
-                        <img src="logopagomovil.png" alt="Pago Móvil" loading="lazy">
-                    </div>
-                    <h3 class="payment-title">Pago Móvil</h3>
-                    <div class="payment-details">
-                        <p><strong>Banco:</strong> Mercantil</p>
-                        <p><strong>Teléfono:</strong> 0424-4525765</p>
-                        <p><strong>Cédula:</strong> 16.897.477</p>
-                        <p style="margin-top: 15px; font-size: 0.9rem; color: var(--primary-red);">
-                            <i class="fas fa-qrcode"></i> Escanea el código QR para pagar fácilmente
-                        </p>
-                    </div>
-                    <div class="qr-container">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=PagoMóvil%3A%0ABanco%3A%20Mercantil%0ATeléfono%3A%2004244525765%0ACédula%3A%2016897477&format=png&margin=10&color=000000&bgcolor=FFFFFF" alt="QR Pago Móvil" loading="lazy">
-                    </div>
-                </div>
-                
-                <!-- Binance -->
-                <div class="payment-method">
-                    <div class="payment-logo">
-                        <img src="logobinance.png" alt="Binance" loading="lazy">
-                    </div>
-                    <h3 class="payment-title">Binance</h3>
-                    <div class="payment-details">
-                        <p>Aceptamos pagos a través de Binance Pay o transferencias en criptomonedas (USDT, BUSD, BNB).</p>
-                        <p>Contáctanos por WhatsApp para obtener nuestra dirección de wallet y realizar el pago de forma segura y rápida.</p>
-                    </div>
-                    <a href="https://wa.me/584244525765?text=Hola%20VarietyVida,%20quiero%20información%20para%20pagar%20por%20Binance" class="btn" target="_blank">Solicitar Wallet</a>
-                </div>
-                
-                <!-- Zelle -->
-                <div class="payment-method">
-                    <div class="payment-logo">
-                        <img src="Zelle_logo.jpg" alt="Zelle" loading="lazy">
-                    </div>
-                    <h3 class="payment-title">Zelle</h3>
-                    <div class="payment-details">
-                        <p>Aceptamos pagos por Zelle desde cuentas bancarias en Estados Unidos.</p>
-                        <p>Contáctanos para recibir la información de nuestra cuenta Zelle y realizar transferencias de forma rápida, segura y sin complicaciones.</p>
-                    </div>
-                    <a href="https://wa.me/584244525765?text=Hola%20VarietyVida,%20quiero%20información%20para%20pagar%20por%20Zelle" class="btn" target="_blank">Solicitar Datos</a>
-                </div>
+    <!-- CATEGORÍA: CARNICERÍA -->
+    <section id="carniceria" class="categoria">
+        <h2>🥩 Carnicería</h2>
+        <div class="product-grid">
+            <div class="product-card" data-precio="12.00">
+                <div class="product-img" style="background-image: url('carnemolida.jpg')"></div>
+                <div class="product-info"><h3>Carne molida</h3><div class="product-desc">1 kg</div><div class="precios"><span class="precio-usd">$12,00</span><span class="precio-bs">Bs 438,00</span></div></div>
+            </div>
+            <div class="product-card" data-precio="12.00">
+                <div class="product-img" style="background-image: url('carneparamechar.jpg')"></div>
+                <div class="product-info"><h3>Carne para mechar</h3><div class="product-desc">1 kg</div><div class="precios"><span class="precio-usd">$12,00</span><span class="precio-bs">Bs 438,00</span></div></div>
+            </div>
+            <div class="product-card" data-precio="12.50">
+                <div class="product-img" style="background-image: url('bisteck.png')"></div>
+                <div class="product-info"><h3>Bisteck</h3><div class="product-desc">1 kg</div><div class="precios"><span class="precio-usd">$12,50</span><span class="precio-bs">Bs 456,25</span></div></div>
+            </div>
+            <div class="product-card" data-precio="12.00">
+                <div class="product-img" style="background-image: url('carneparaguisar.jpg')"></div>
+                <div class="product-info"><h3>Carne para guisar</h3><div class="product-desc">1 kg</div><div class="precios"><span class="precio-usd">$12,00</span><span class="precio-bs">Bs 438,00</span></div></div>
+            </div>
+            <div class="product-card" data-precio="5.00">
+                <div class="product-img" style="background-image: url('polloentero.png')"></div>
+                <div class="product-info"><h3>Pollo entero</h3><div class="product-desc">1 kg</div><div class="precios"><span class="precio-usd">$5,00</span><span class="precio-bs">Bs 182,50</span></div></div>
             </div>
         </div>
     </section>
 
-    <!-- Ubicación -->
-    <section class="location" id="ubicacion">
-        <div class="container">
-            <h2 class="section-title">Nuestra Ubicación</h2>
-            
-            <div class="location-content">
-                <p class="location-description">Visítanos en nuestro local o utiliza el mapa interactivo para encontrar la mejor ruta hacia nosotros. Estamos ubicados estratégicamente para tu comodidad, con facilidades de acceso y estacionamiento.</p>
-                
-                <div class="location-map">
-                    <img src="mapadevenezuela.png" alt="Mapa de Venezuela" loading="lazy">
-                    <div class="map-overlay">
-                        <h3>Encuéntranos Fácilmente</h3>
-                        <p>Haz clic en el botón para ver nuestra ubicación exacta en Google Maps y obtener indicaciones detalladas para llegar a nuestro establecimiento.</p>
-                        <a href="https://maps.app.goo.gl/Yco82LzVs3sJVcDS7" class="btn" target="_blank">
-                            <i class="fas fa-map-marker-alt"></i> Ver en Google Maps
-                        </a>
-                    </div>
-                </div>
-                
-                <a href="https://maps.app.goo.gl/Yco82LzVs3sJVcDS7" class="btn" target="_blank">
-                    <i class="fas fa-directions"></i> Obtener Indicaciones
-                </a>
+    <!-- CATEGORÍA: CHARCUTERÍA -->
+    <section id="charcuteria" class="categoria">
+        <h2>🥓 Charcutería</h2>
+        <div class="product-grid">
+            <div class="product-card" data-precio="7.00">
+                <div class="product-img" style="background-image: url('chorizo.jpg')"></div>
+                <div class="product-info"><h3>Chorizo Ahumado</h3><div class="product-desc">1 kg</div><div class="precios"><span class="precio-usd">$7,00</span><span class="precio-bs">Bs 255,50</span></div></div>
+            </div>
+            <div class="product-card" data-precio="1.80">
+                <div class="product-img" style="background-image: url('salchicha.jpg')"></div>
+                <div class="product-info"><h3>Salchicha</h3><div class="product-desc">1 kg</div><div class="precios"><span class="precio-usd">$1,80</span><span class="precio-bs">Bs 65,70</span></div></div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer id="contacto">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-about">
-                    <div class="footer-logo">
-                        <img src="logovarietyvida.jpeg" alt="VarietyVida Logo" loading="lazy">
-                    </div>
-                    <p>VarietyVida se dedica a ofrecer productos alimenticios gourmet de la más alta calidad, combinando tradición venezolana con estándares de excelencia. Cada producto es seleccionado y preparado con pasión y dedicación.</p>
-                    <div class="footer-social">
-                        <a href="https://wa.me/584244525765" target="_blank" title="WhatsApp" aria-label="WhatsApp">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="https://instagram.com" target="_blank" title="Instagram" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://facebook.com" target="_blank" title="Facebook" aria-label="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="footer-links">
-                    <h3>Enlaces Rápidos</h3>
-                    <ul>
-                        <li><a href="#inicio"><i class="fas fa-chevron-right"></i> Inicio</a></li>
-                        <li><a href="#categorias"><i class="fas fa-chevron-right"></i> Productos</a></li>
-                        <li><a href="#pagos"><i class="fas fa-chevron-right"></i> Métodos de Pago</a></li>
-                        <li><a href="#ubicacion"><i class="fas fa-chevron-right"></i> Ubicación</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-contact">
-                    <h3>Contacto</h3>
-                    <p><i class="fas fa-phone-alt"></i> Teléfono: 0424-4525765</p>
-                    <p><i class="fab fa-whatsapp"></i> WhatsApp: 0424-4525765</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Ubicación: <a href="https://maps.app.goo.gl/Yco82LzVs3sJVcDS7" target="_blank">Ver en Google Maps</a></p>
-                    <p><i class="far fa-clock"></i> Horario: Lunes a Sábado 8:00 AM - 6:00 PM</p>
-                </div>
+    <!-- CATEGORÍA: EVENTOS -->
+    <section id="eventos" class="categoria">
+        <h2>🎉 Eventos</h2>
+        <div class="product-grid">
+            <div class="product-card" data-precio="2.00">
+                <div class="product-img" style="background-image: url('carnedehamburguesa.png')"></div>
+                <div class="product-info"><h3>Carne de hamburguesa</h3><div class="product-desc">pack 6 unidades</div><div class="precios"><span class="precio-usd">$2,00</span><span class="precio-bs">Bs 73,00</span></div></div>
             </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 VarietyVida. Todos los derechos reservados. | Productos alimenticios gourmet venezolanos.</p>
-                <p>Diseño web y estrategia digital por <a href="https://jhonmalorne.github.io/nexus.net/" target="_blank">Nexus Marketing</a> - Soluciones integrales para tu presencia digital.</p>
-                
-                <div class="nexus-credit">
-                    <span>Desarrollado por:</span>
-                    <a href="https://jhonmalorne.github.io/nexus.net/" target="_blank">
-                        <img src="logomarketin.jpeg" alt="Nexus Marketing" loading="lazy">
-                    </a>
-                </div>
+            <div class="product-card" data-precio="6.00">
+                <div class="product-img" style="background-image: url('bolasdecarne.jpg')"></div>
+                <div class="product-info"><h3>Bolitas de carne</h3><div class="product-desc">1 kg</div><div class="precios"><span class="precio-usd">$6,00</span><span class="precio-bs">Bs 219,00</span></div></div>
             </div>
         </div>
-    </footer>
+    </section>
 
-    <script>
-        // ============ MANEJO DE IMÁGENES CON ERROR ============
-        function handleImageError(imgElement) {
-            if (!imgElement.hasAttribute('data-handled')) {
-                imgElement.setAttribute('data-handled', 'true');
-                const parent = imgElement.parentElement;
-                if (parent.classList.contains('product-image')) {
-                    parent.classList.add('image-loading');
-                    parent.innerHTML = `<div style="display: flex; align-items: center; justify-content: center; height: 100%; color: var(--medium-gray);"><i class="fas fa-image fa-3x"></i></div>`;
-                }
-            }
+    <!-- MÉTODOS DE PAGO (con QR dinámico para pago móvil) -->
+    <section id="pagos" class="pagos-section">
+        <h2 style="color: var(--rojo); font-size: 2.2rem; margin-bottom: 20px;">💳 Métodos de pago</h2>
+        <div class="pagos-grid">
+            <!-- Pago móvil -->
+            <div class="pago-item">
+                <img src="logopagomovil.png" alt="Pago Móvil" onerror="this.src='https://via.placeholder.com/100x50?text=PagoMóvil'">
+                <div class="qr-container" id="qr-pagomovil"></div>
+                <small>0424-4525765 · Bco Mercantil<br>Doc: 16897477</small>
+            </div>
+            <!-- Binance -->
+            <div class="pago-item">
+                <img src="logobinance.png" alt="Binance" onerror="this.src='https://via.placeholder.com/100x50?text=Binance'">
+                <p style="margin: 15px 0"><strong>ID: 4244525765</strong></p>
+                <small>Escanea el código desde la app</small>
+                <!-- Podríamos poner un QR genérico, pero usaremos el logo como referencia -->
+            </div>
+            <!-- Zelle -->
+            <div class="pago-item">
+                <img src="Zelle_logo.jpg" alt="Zelle" onerror="this.src='https://via.placeholder.com/100x50?text=Zelle'">
+                <p style="margin: 15px 0"><strong>varietyvida@gmail.com</strong></p>
+                <small>Regístrate con el correo</small>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 30px; font-weight: 500;">🟢 Para abonar vía Binance o Zelle, escribe a nuestro WhatsApp y te indicamos los datos exactos.</p>
+    </section>
+
+    <!-- MAPA Y UBICACIÓN -->
+    <div style="text-align: center;">
+        <a href="https://maps.app.goo.gl/Yco82LzVs3sJVcDS7" target="_blank" class="mapa-boton">
+            <i class="fas fa-map-marker-alt"></i> ¿Cómo llegar? ¡Visítanos!
+        </a>
+        <p style="color: #666;">📍 Los Guayos, Venezuela — Abrimos de 8am a 6pm</p>
+    </div>
+
+    <!-- IMAGEN DE VENEZUELA (detalle) -->
+    <div style="display: flex; justify-content: center; margin: 40px 0 10px;">
+        <img src="mapadevenezuela.png" alt="Mapa de Venezuela" style="max-width: 120px; opacity: 0.5;">
+    </div>
+
+</main>
+
+<footer>
+    <div class="container footer-content">
+        <div class="credits">
+            <a href="https://jhonmalorne.github.io/nexus.net/" target="_blank">
+                <img src="logomarketin.jpeg" alt="Nexus Marketing" onerror="this.src='https://via.placeholder.com/28x28?text=Nexus'"> Diseño: Nexus marketing.net
+            </a>
+            <span style="color: #777;">|</span>
+            <a href="https://losguayosdigital.com/" target="_blank" style="background: transparent; padding:0; color: #aaa;">
+                📢 Agradecimiento a Los Guayos Digital
+            </a>
+        </div>
+        <div class="venezuela-icon">
+            <img src="mapadevenezuela.png" alt="Vzla" style="height: 20px;">
+            <span>Hecho en Venezuela · 2025</span>
+        </div>
+    </div>
+    <div class="container" style="text-align: center; margin-top: 30px; font-size: 0.85rem; color: #777;">
+        <p>📞 WhatsApp: +58 424-4525765 | 📧 varietyvida@contacto</p>
+        <p>📦 Todos los precios están sujetos a disponibilidad y cambio sin previo aviso.</p>
+    </div>
+</footer>
+
+<!-- JAVASCRIPT: conversor Bs y generación QR -->
+<script>
+    (function() {
+        // Generar QR para pago móvil
+        if (document.getElementById('qr-pagomovil')) {
+            var qrData = 'Pago móvil: 04244525765 / Banco Mercantil / Doc 16897477';
+            var qr = new QRCode(document.getElementById('qr-pagomovil'), {
+                text: qrData,
+                width: 140,
+                height: 140,
+                colorDark: '#b3422d',
+                colorLight: '#ffffff',
+                correctLevel: QRCode.CorrectLevel.H
+            });
         }
-        
-        // Observar todas las imágenes para manejar errores
-        document.addEventListener('DOMContentLoaded', function() {
-            const images = document.querySelectorAll('img');
-            images.forEach(img => {
-                img.addEventListener('error', function() {
-                    handleImageError(this);
-                });
-            });
-        });
 
-        // ============ MENÚ MÓVIL ============
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navLinks = document.getElementById('navLinks');
+        // Conversor de divisas
+        const tasaInput = document.getElementById('tasa');
+        const productos = document.querySelectorAll('.product-card');
         
-        mobileMenuBtn.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-            const isExpanded = navLinks.classList.contains('active');
-            this.setAttribute('aria-expanded', isExpanded);
-            this.innerHTML = isExpanded 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
+        function actualizarPrecios() {
+            let tasa = parseFloat(tasaInput.value);
+            if (isNaN(tasa) || tasa <= 0) tasa = 36.50;
             
-            // Prevenir scroll del body cuando el menú está abierto
-            document.body.style.overflow = isExpanded ? 'hidden' : '';
-        });
-        
-        // Cerrar menú al hacer clic en un enlace
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                document.body.style.overflow = '';
-            });
-        });
-        
-        // Cerrar menú al hacer clic fuera
-        document.addEventListener('click', (e) => {
-            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target) && navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                document.body.style.overflow = '';
-            }
-        });
-
-        // ============ CATEGORÍAS DE PRODUCTOS ============
-        const categoryTabs = document.querySelectorAll('.category-tab');
-        const productSections = {
-            postres: document.getElementById('postres-products'),
-            carniceria: document.getElementById('carniceria-products'),
-            charcuteria: document.getElementById('charcuteria-products'),
-            eventos: document.getElementById('eventos-products')
-        };
-        
-        categoryTabs.forEach(tab => {
-            tab.addEventListener('click', function() {
-                // Remover clase active de todas las pestañas
-                categoryTabs.forEach(t => t.classList.remove('active'));
-                
-                // Añadir clase active a la pestaña clickeada
-                this.classList.add('active');
-                
-                // Ocultar todas las secciones de productos
-                Object.values(productSections).forEach(section => {
-                    if (section) {
-                        section.style.opacity = '0';
-                        setTimeout(() => {
-                            section.style.display = 'none';
-                        }, 150);
+            productos.forEach(card => {
+                const precioUsdElem = card.querySelector('.precio-usd');
+                const precioBsElem = card.querySelector('.precio-bs');
+                if (precioUsdElem && precioBsElem) {
+                    // Extraer precio USD (formato "$3,00" o "$12.50")
+                    let usdText = precioUsdElem.innerText.replace('$', '').replace(',', '.').trim();
+                    let usd = parseFloat(usdText);
+                    if (!isNaN(usd)) {
+                        let bs = usd * tasa;
+                        precioBsElem.innerText = 'Bs ' + bs.toFixed(2).replace('.', ',');
                     }
-                });
-                
-                // Mostrar la sección correspondiente con animación
-                const category = this.getAttribute('data-category');
-                const targetSection = productSections[category];
-                if (targetSection) {
-                    setTimeout(() => {
-                        targetSection.style.display = 'grid';
-                        setTimeout(() => {
-                            targetSection.style.opacity = '1';
-                        }, 10);
-                    }, 150);
-                }
-                
-                // Scroll suave si estamos en móvil
-                if (window.innerWidth <= 768) {
-                    setTimeout(() => {
-                        document.getElementById('categorias').scrollIntoView({ 
-                            behavior: 'smooth', 
-                            block: 'start' 
-                        });
-                    }, 300);
                 }
             });
-        });
-
-        // ============ SCROLL HEADER EFFECT ============
-        const header = document.getElementById('mainHeader');
-        let lastScroll = 0;
-        
-        window.addEventListener('scroll', function() {
-            const currentScroll = window.pageYOffset;
-            
-            // Efecto de sombra al hacer scroll
-            if (currentScroll > 50) {
-                header.style.boxShadow = 'var(--shadow-md)';
-            } else {
-                header.style.boxShadow = 'var(--shadow-sm)';
-            }
-            
-            // Ocultar/mostrar header al hacer scroll (solo en desktop)
-            if (window.innerWidth > 768) {
-                if (currentScroll > lastScroll && currentScroll > 100) {
-                    header.style.transform = 'translateY(-100%)';
-                } else {
-                    header.style.transform = 'translateY(0)';
-                }
-            }
-            
-            lastScroll = currentScroll;
-        });
-
-        // ============ ANIMACIONES AL SCROLL ============
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, observerOptions);
-        
-        // Observar elementos para animación
-        document.addEventListener('DOMContentLoaded', function() {
-            const elementsToAnimate = document.querySelectorAll('.section-title, .product-card, .payment-method, .location-map');
-            elementsToAnimate.forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(el);
-            });
-        });
-
-        // ============ MANEJO DE FORMULARIOS (futura expansión) ============
-        // Este código está preparado para futuras funcionalidades
-        document.addEventListener('submit', function(e) {
-            if (e.target.tagName === 'FORM') {
-                e.preventDefault();
-                // Aquí se podría agregar lógica para manejar formularios
-                console.log('Formulario enviado');
-            }
-        });
-
-        // ============ MEJORAS DE ACCESIBILIDAD ============
-        // Manejar tecla Escape para cerrar menú
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                document.body.style.overflow = '';
-            }
-        });
-        
-        // Mejorar navegación por teclado
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Tab' && navLinks.classList.contains('active')) {
-                const focusableElements = navLinks.querySelectorAll('a');
-                const firstElement = focusableElements[0];
-                const lastElement = focusableElements[focusableElements.length - 1];
-                
-                if (e.shiftKey && document.activeElement === firstElement) {
-                    e.preventDefault();
-                    lastElement.focus();
-                } else if (!e.shiftKey && document.activeElement === lastElement) {
-                    e.preventDefault();
-                    firstElement.focus();
-                }
-            }
-        });
-
-        // ============ OPTIMIZACIONES DE RENDIMIENTO ============
-        // Precargar imágenes importantes
-        window.addEventListener('load', function() {
-            const importantImages = [
-                'logovarietyvida.jpeg',
-                'logowhatsapp.png',
-                'logopagomovil.png'
-            ];
-            
-            importantImages.forEach(src => {
-                const img = new Image();
-                img.src = src;
-            });
-        });
-
-        // ============ DETECCIÓN DE CARACTERÍSTICAS ============
-        // Detectar si el usuario prefiere movimiento reducido
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-        
-        if (prefersReducedMotion.matches) {
-            // Deshabilitar animaciones y transiciones
-            document.querySelectorAll('*').forEach(el => {
-                el.style.animation = 'none !important';
-                el.style.transition = 'none !important';
-            });
-            
-            // Modificar scroll behavior
-            document.documentElement.style.scrollBehavior = 'auto';
         }
 
-        // ============ ESTADÍSTICAS BÁSICAS (sin cookies) ============
-        // Registrar visita a la página
-        window.addEventListener('load', function() {
-            const visitCount = localStorage.getItem('varietyvida_visits') || 0;
-            localStorage.setItem('varietyvida_visits', parseInt(visitCount) + 1);
-            
-            // Registrar interacción con productos
-            document.querySelectorAll('.product-card .btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const productName = this.closest('.product-card').querySelector('.product-name').textContent;
-                    console.log(`Producto solicitado: ${productName}`);
-                    // Aquí se podría integrar con Google Analytics
-                });
-            });
+        tasaInput.addEventListener('input', actualizarPrecios);
+        actualizarPrecios(); // inicializar
+
+        // Arreglar posibles errores de imágenes (cargar placeholder si no existen)
+        document.querySelectorAll('img').forEach(img => {
+            img.onerror = function() {
+                this.src = 'https://via.placeholder.com/150x150?text=Imagen';
+            };
         });
-    </script>
+    })();
+</script>
+
+<!-- Asegurar que los estilos de las imágenes de fondo también tengan un fallback (color) -->
+<style>
+    .product-img {
+        background-color: #f0d9d4; /* color fallback */
+        background-size: cover;
+        background-position: center;
+    }
+</style>
+
 </body>
 </html>
