@@ -125,47 +125,6 @@
             color: var(--rojo-principal);
         }
 
-        /* Conversor de tasa */
-        .tasa-card {
-            background-color: var(--blanco);
-            padding: 18px 28px;
-            border-radius: 60px;
-            display: inline-flex;
-            align-items: center;
-            gap: 25px;
-            flex-wrap: wrap;
-            box-shadow: var(--sombra);
-            margin: 20px 0 30px;
-            border: 1px solid #f0cfc8;
-        }
-
-        .tasa-card label {
-            font-weight: 600;
-            color: var(--rojo-principal);
-        }
-
-        .tasa-card input {
-            padding: 8px 16px;
-            border: 1px solid #ddd;
-            border-radius: 40px;
-            font-size: 1rem;
-            width: 150px;
-            outline: none;
-            transition: 0.2s;
-        }
-
-        .tasa-card input:focus {
-            border-color: var(--rojo-principal);
-            box-shadow: 0 0 0 3px rgba(179, 66, 45, 0.1);
-        }
-
-        .tasa-card span {
-            background: #f0f0f0;
-            padding: 6px 18px;
-            border-radius: 40px;
-            font-size: 0.9rem;
-        }
-
         /* Categorías desplegables (acordeón) */
         .categoria {
             margin: 20px 0;
@@ -276,27 +235,14 @@
             margin-bottom: 12px;
         }
 
-        .precios {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-top: auto;
-            padding-top: 12px;
-            border-top: 1px dashed #ddd;
-        }
-
         .precio-usd {
             font-weight: 700;
             font-size: 1.4rem;
             color: var(--rojo-principal);
-        }
-
-        .precio-bs {
-            background: #f2f2f2;
-            padding: 4px 10px;
-            border-radius: 40px;
-            font-size: 0.9rem;
-            font-weight: 500;
+            margin-top: auto;
+            text-align: right;
+            border-top: 1px dashed #ddd;
+            padding-top: 12px;
         }
 
         /* Métodos de pago */
@@ -432,7 +378,6 @@
         @media (max-width: 700px) {
             .cat-header h2 { font-size: 1.5rem; }
             .header-content { flex-direction: column; text-align: center; }
-            .tasa-card { flex-direction: column; align-items: stretch; text-align: center; }
         }
     </style>
 </head>
@@ -462,13 +407,6 @@
         </div>
     </div>
 
-    <!-- Conversor dólar / bolívar (opcional) -->
-    <div class="tasa-card">
-        <label for="tasa"><i class="fas fa-exchange-alt"></i> Tasa Bs/USD:</label>
-        <input type="number" id="tasa" value="36.50" step="0.01" min="1">
-        <span>Precios en Bs referenciales</span>
-    </div>
-
     <!-- ===== CATEGORÍAS DESPLEGABLES ===== -->
     <!-- Categoría: Postres y Dulces -->
     <div class="categoria" id="cat-postres">
@@ -480,39 +418,30 @@
         <div class="cat-content open" id="content-postres">
             <div class="product-grid">
                 <!-- Yogurt casero -->
-                <div class="product-card" data-precio="3.00">
+                <div class="product-card">
                     <div class="product-img" style="background-image: url('yogurt.jpg')"></div>
                     <div class="product-info">
                         <h3>Yogurt casero</h3>
                         <div class="product-desc">500 gr · Sabores: Fresa, ciruelas pasas, Piña, Melocotón</div>
-                        <div class="precios">
-                            <span class="precio-usd">$3,00</span>
-                            <span class="precio-bs">Bs 109,50</span>
-                        </div>
+                        <div class="precio-usd">$3,00</div>
                     </div>
                 </div>
                 <!-- Quesillo -->
-                <div class="product-card" data-precio="3.00">
+                <div class="product-card">
                     <div class="product-img" style="background-image: url('quesillo.jpg')"></div>
                     <div class="product-info">
                         <h3>Quesillo</h3>
                         <div class="product-desc">Tradicional 500 g</div>
-                        <div class="precios">
-                            <span class="precio-usd">$3,00</span>
-                            <span class="precio-bs">Bs 109,50</span>
-                        </div>
+                        <div class="precio-usd">$3,00</div>
                     </div>
                 </div>
                 <!-- Arroz con leche (adicional) -->
-                <div class="product-card" data-precio="3.00">
+                <div class="product-card">
                     <div class="product-img" style="background-image: url('arrozconleche.jpg')"></div>
                     <div class="product-info">
                         <h3>Arroz con leche</h3>
                         <div class="product-desc">Postre casero, 500 g</div>
-                        <div class="precios">
-                            <span class="precio-usd">$3,00</span>
-                            <span class="precio-bs">Bs 109,50</span>
-                        </div>
+                        <div class="precio-usd">$3,00</div>
                     </div>
                 </div>
             </div>
@@ -528,11 +457,11 @@
         </div>
         <div class="cat-content" id="content-carniceria">
             <div class="product-grid">
-                <div class="product-card" data-precio="12.00"><div class="product-img" style="background-image: url('carnemolida.jpg')"></div><div class="product-info"><h3>Carne molida</h3><div class="product-desc">1 kg</div><div class="precios"><span class="precio-usd">$12,00</span><span class="precio-bs">Bs 438,00</span></div></div></div>
-                <div class="product-card" data-precio="12.00"><div class="product-img" style="background-image: url('carneparamechar.jpg')"></div><div class="product-info"><h3>Carne para mechar</h3><div class="product-desc">1 kg</div><div class="precios"><span class="precio-usd">$12,00</span><span class="precio-bs">Bs 438,00</span></div></div></div>
-                <div class="product-card" data-precio="12.50"><div class="product-img" style="background-image: url('bisteck.png')"></div><div class="product-info"><h3>Bisteck</h3><div class="product-desc">1 kg</div><div class="precios"><span class="precio-usd">$12,50</span><span class="precio-bs">Bs 456,25</span></div></div></div>
-                <div class="product-card" data-precio="12.00"><div class="product-img" style="background-image: url('carneparaguisar.jpg')"></div><div class="product-info"><h3>Carne para guisar</h3><div class="product-desc">1 kg</div><div class="precios"><span class="precio-usd">$12,00</span><span class="precio-bs">Bs 438,00</span></div></div></div>
-                <div class="product-card" data-precio="5.00"><div class="product-img" style="background-image: url('polloentero.png')"></div><div class="product-info"><h3>Pollo entero</h3><div class="product-desc">1 kg</div><div class="precios"><span class="precio-usd">$5,00</span><span class="precio-bs">Bs 182,50</span></div></div></div>
+                <div class="product-card"><div class="product-img" style="background-image: url('carnemolida.jpg')"></div><div class="product-info"><h3>Carne molida</h3><div class="product-desc">1 kg</div><div class="precio-usd">$12,00</div></div></div>
+                <div class="product-card"><div class="product-img" style="background-image: url('carneparamechar.jpg')"></div><div class="product-info"><h3>Carne para mechar</h3><div class="product-desc">1 kg</div><div class="precio-usd">$12,00</div></div></div>
+                <div class="product-card"><div class="product-img" style="background-image: url('bisteck.png')"></div><div class="product-info"><h3>Bisteck</h3><div class="product-desc">1 kg</div><div class="precio-usd">$12,50</div></div></div>
+                <div class="product-card"><div class="product-img" style="background-image: url('carneparaguisar.jpg')"></div><div class="product-info"><h3>Carne para guisar</h3><div class="product-desc">1 kg</div><div class="precio-usd">$12,00</div></div></div>
+                <div class="product-card"><div class="product-img" style="background-image: url('polloentero.png')"></div><div class="product-info"><h3>Pollo entero</h3><div class="product-desc">1 kg</div><div class="precio-usd">$5,00</div></div></div>
             </div>
         </div>
     </div>
@@ -546,10 +475,12 @@
         </div>
         <div class="cat-content" id="content-charcuteria">
             <div class="product-grid">
-                <div class="product-card" data-precio="7.00"><div class="product-img" style="background-image: url('chorizo.jpg')"></div><div class="product-info"><h3>Chorizo Ahumado</h3><div class="product-desc">1 kg</div><div class="precios"><span class="precio-usd">$7,00</span><span class="precio-bs">Bs 255,50</span></div></div></div>
-                <div class="product-card" data-precio="1.80"><div class="product-img" style="background-image: url('salchicha.jpg')"></div><div class="product-info"><h3>Salchicha</h3><div class="product-desc">1 kg</div><div class="precios"><span class="precio-usd">$1,80</span><span class="precio-bs">Bs 65,70</span></div></div></div>
+                <div class="product-card"><div class="product-img" style="background-image: url('chorizo.jpg')"></div><div class="product-info"><h3>Chorizo Ahumado</h3><div class="product-desc">1 kg</div><div class="precio-usd">$7,00</div></div></div>
+                <div class="product-card"><div class="product-img" style="background-image: url('salchicha.jpg')"></div><div class="product-info"><h3>Salchicha</h3><div class="product-desc">1 kg</div><div class="precio-usd">$1,80</div></div></div>
                 <!-- Queso de cabra añadido (precio estimado) -->
-                <div class="product-card" data-precio="8.00"><div class="product-img" style="background-image: url('quesodecabra.jpg')"></div><div class="product-info"><h3>Queso de cabra</h3><div class="product-desc">Artesanal, 1 kg</div><div class="precios"><span class="precio-usd">$8,00</span><span class="precio-bs">Bs 292,00</span></div></div></div>
+                <div class="product-card"><div class="product-img" style="background-image: url('quesodecabra.jpg')"></div><div class="product-info"><h3>Queso de cabra</h3><div class="product-desc">Artesanal, 1 kg</div><div class="precio-usd">$8,00</div></div></div>
+                <!-- Leche fresca de cabra (precio estimado) -->
+                <div class="product-card"><div class="product-img" style="background-image: url('lechefrescadecabra.jpg')"></div><div class="product-info"><h3>Leche fresca de cabra</h3><div class="product-desc">Botella 1 L</div><div class="precio-usd">$4,00</div></div></div>
             </div>
         </div>
     </div>
@@ -563,8 +494,8 @@
         </div>
         <div class="cat-content" id="content-eventos">
             <div class="product-grid">
-                <div class="product-card" data-precio="2.00"><div class="product-img" style="background-image: url('carnedehamburguesa.png')"></div><div class="product-info"><h3>Carne de hamburguesa</h3><div class="product-desc">pack 6 unidades</div><div class="precios"><span class="precio-usd">$2,00</span><span class="precio-bs">Bs 73,00</span></div></div></div>
-                <div class="product-card" data-precio="6.00"><div class="product-img" style="background-image: url('bolasdecarne.jpg')"></div><div class="product-info"><h3>Bolitas de carne</h3><div class="product-desc">1 kg</div><div class="precios"><span class="precio-usd">$6,00</span><span class="precio-bs">Bs 219,00</span></div></div></div>
+                <div class="product-card"><div class="product-img" style="background-image: url('carnedehamburguesa.png')"></div><div class="product-info"><h3>Carne de hamburguesa</h3><div class="product-desc">pack 6 unidades</div><div class="precio-usd">$2,00</div></div></div>
+                <div class="product-card"><div class="product-img" style="background-image: url('bolasdecarne.jpg')"></div><div class="product-info"><h3>Bolitas de carne</h3><div class="product-desc">1 kg</div><div class="precio-usd">$6,00</div></div></div>
             </div>
         </div>
     </div>
@@ -632,7 +563,7 @@
     </div>
 </footer>
 
-<!-- JavaScript: acordeón, conversor y QR -->
+<!-- JavaScript: acordeón y QR -->
 <script>
     (function() {
         // 1. Generar QR para pago móvil
@@ -676,32 +607,7 @@
             });
         });
 
-        // 3. Conversor de divisas
-        const tasaInput = document.getElementById('tasa');
-        const productos = document.querySelectorAll('.product-card');
-        
-        function actualizarPrecios() {
-            let tasa = parseFloat(tasaInput.value);
-            if (isNaN(tasa) || tasa <= 0) tasa = 36.50;
-            
-            productos.forEach(card => {
-                const precioUsdElem = card.querySelector('.precio-usd');
-                const precioBsElem = card.querySelector('.precio-bs');
-                if (precioUsdElem && precioBsElem) {
-                    let usdText = precioUsdElem.innerText.replace('$', '').replace(',', '.').trim();
-                    let usd = parseFloat(usdText);
-                    if (!isNaN(usd)) {
-                        let bs = usd * tasa;
-                        precioBsElem.innerText = 'Bs ' + bs.toFixed(2).replace('.', ',');
-                    }
-                }
-            });
-        }
-
-        tasaInput.addEventListener('input', actualizarPrecios);
-        actualizarPrecios(); // inicializar
-
-        // 4. Fallback para imágenes que no carguen
+        // 3. Fallback para imágenes que no carguen
         document.querySelectorAll('img').forEach(img => {
             img.onerror = function() {
                 this.src = 'https://via.placeholder.com/150x150?text=Variety';
