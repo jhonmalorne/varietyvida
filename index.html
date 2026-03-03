@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Variety Vida · Productos artesanales</title>
-    <!-- Fuente moderna e íconos -->
+    <!-- Fuente Inter e íconos Font Awesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Librería para generar QR (pago móvil) -->
     <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
@@ -20,35 +20,35 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #fef8f7;  /* fondo muy suave */
-            color: #2d2d2d;
+            background-color: #fefaf8;
+            color: #1f1f1f;
             line-height: 1.5;
         }
 
-        /* Paleta rojo/blanco - rojo corporativo no brillante */
+        /* Paleta de colores: rojo corporativo terroso + blanco */
         :root {
-            --rojo: #b3422d;     /* rojo terroso / vino */
+            --rojo-principal: #b3422d;    /* rojo no brillante */
             --rojo-claro: #e6b2a8;
             --blanco: #ffffff;
             --gris-fondo: #f5f0ef;
             --texto-oscuro: #2e2e2e;
-            --sombra-suave: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.02);
+            --sombra: 0 8px 20px rgba(0,0,0,0.03), 0 2px 6px rgba(0,0,0,0.02);
         }
 
         .container {
             max-width: 1300px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
         /* Header */
         header {
             background-color: var(--blanco);
-            box-shadow: var(--sombra-suave);
+            box-shadow: var(--sombra);
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 3px solid var(--rojo);
+            border-bottom: 3px solid var(--rojo-principal);
         }
 
         .header-content {
@@ -63,42 +63,42 @@
         .logo-area {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
         }
 
         .logo-area img {
-            height: 60px;
+            height: 65px;
             width: auto;
-            border-radius: 8px;
+            border-radius: 10px;
         }
 
         .logo-area h1 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 700;
-            color: var(--rojo);
+            color: var(--rojo-principal);
             letter-spacing: -0.5px;
         }
 
-        .header-whatsapp a {
+        .whatsapp-btn a {
             background-color: #25D366;
             color: white;
-            padding: 10px 20px;
-            border-radius: 40px;
+            padding: 12px 24px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             transition: 0.2s;
-            box-shadow: 0 4px 8px rgba(37, 211, 102, 0.2);
+            box-shadow: 0 6px 14px rgba(37, 211, 102, 0.2);
         }
 
-        .header-whatsapp a:hover {
+        .whatsapp-btn a:hover {
             background-color: #20b859;
             transform: scale(1.02);
         }
 
-        .header-whatsapp img {
+        .whatsapp-btn img {
             height: 22px;
             width: 22px;
             filter: brightness(0) invert(1);
@@ -106,42 +106,42 @@
 
         /* Banner informativo */
         .banner-info {
-            background-color: #fff6e5;
-            border-left: 6px solid var(--rojo);
-            padding: 16px 20px;
-            border-radius: 0 12px 12px 0;
-            margin: 25px 0 15px;
+            background-color: #fff3e6;
+            border-left: 6px solid var(--rojo-principal);
+            padding: 18px 22px;
+            border-radius: 0 16px 16px 0;
+            margin: 30px 0 20px;
             font-weight: 500;
-            color: #5a4a3e;
-            box-shadow: var(--sombra-suave);
+            color: #4a3f38;
+            box-shadow: var(--sombra);
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 16px;
             flex-wrap: wrap;
         }
 
         .banner-info i {
-            font-size: 2rem;
-            color: var(--rojo);
+            font-size: 2.4rem;
+            color: var(--rojo-principal);
         }
 
         /* Conversor de tasa */
         .tasa-card {
             background-color: var(--blanco);
-            padding: 16px 24px;
+            padding: 18px 28px;
             border-radius: 60px;
             display: inline-flex;
             align-items: center;
-            gap: 20px;
+            gap: 25px;
             flex-wrap: wrap;
-            box-shadow: var(--sombra-suave);
+            box-shadow: var(--sombra);
             margin: 20px 0 30px;
             border: 1px solid #f0cfc8;
         }
 
         .tasa-card label {
             font-weight: 600;
-            color: var(--rojo);
+            color: var(--rojo-principal);
         }
 
         .tasa-card input {
@@ -149,83 +149,103 @@
             border: 1px solid #ddd;
             border-radius: 40px;
             font-size: 1rem;
-            width: 140px;
+            width: 150px;
             outline: none;
             transition: 0.2s;
         }
 
         .tasa-card input:focus {
-            border-color: var(--rojo);
+            border-color: var(--rojo-principal);
             box-shadow: 0 0 0 3px rgba(179, 66, 45, 0.1);
         }
 
         .tasa-card span {
             background: #f0f0f0;
-            padding: 5px 15px;
+            padding: 6px 18px;
             border-radius: 40px;
             font-size: 0.9rem;
         }
 
-        /* Categorías - navegación */
-        .nav-cats {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            justify-content: center;
-            margin: 30px 0 20px;
-        }
-
-        .nav-cats a {
-            background-color: var(--blanco);
-            color: var(--texto-oscuro);
-            text-decoration: none;
-            padding: 12px 28px;
-            border-radius: 40px;
-            font-weight: 600;
-            box-shadow: var(--sombra-suave);
-            transition: 0.2s;
-            border: 1px solid transparent;
-        }
-
-        .nav-cats a:hover {
-            border-color: var(--rojo);
-            color: var(--rojo);
-        }
-
-        /* Cards de categorías y productos */
+        /* Categorías desplegables (acordeón) */
         .categoria {
-            margin: 50px 0;
+            margin: 20px 0;
+            border-radius: 24px;
+            background-color: var(--blanco);
+            box-shadow: var(--sombra);
+            overflow: hidden;
+            border: 1px solid #f0e0db;
         }
 
-        .categoria h2 {
-            font-size: 2.2rem;
+        .cat-header {
+            background-color: var(--blanco);
+            padding: 20px 28px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: 0.2s;
+            border-bottom: 2px solid transparent;
+        }
+
+        .cat-header:hover {
+            background-color: #fff3f0;
+        }
+
+        .cat-header i {
+            font-size: 2rem;
+            color: var(--rojo-principal);
+            width: 40px;
+        }
+
+        .cat-header h2 {
+            font-size: 1.8rem;
             font-weight: 600;
-            color: var(--rojo);
-            margin-bottom: 20px;
-            padding-left: 10px;
-            border-left: 8px solid var(--rojo);
+            color: var(--texto-oscuro);
+            flex: 1;
         }
 
+        .cat-header .toggle-icon {
+            font-size: 1.8rem;
+            color: var(--rojo-principal);
+            transition: transform 0.3s;
+        }
+
+        .cat-content {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s;
+            padding: 0 28px;
+            background-color: #fffcfb;
+        }
+
+        .cat-content.open {
+            max-height: 2000px; /* valor grande para que quepa todo */
+            opacity: 1;
+            padding: 28px;
+        }
+
+        /* Grid de productos */
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 25px;
+            gap: 30px;
         }
 
         .product-card {
             background-color: var(--blanco);
             border-radius: 24px;
             overflow: hidden;
-            box-shadow: var(--sombra-suave);
-            transition: all 0.25s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            transition: transform 0.2s, box-shadow 0.2s;
             border: 1px solid #fceae5;
             display: flex;
             flex-direction: column;
         }
 
         .product-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 25px 30px -12px rgba(179, 66, 45, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -10px rgba(179, 66, 45, 0.15);
             border-color: var(--rojo-claro);
         }
 
@@ -237,7 +257,7 @@
         }
 
         .product-info {
-            padding: 18px 16px 16px;
+            padding: 20px 16px 16px;
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -253,7 +273,7 @@
         .product-desc {
             color: #666;
             font-size: 0.9rem;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .precios {
@@ -267,8 +287,8 @@
 
         .precio-usd {
             font-weight: 700;
-            font-size: 1.3rem;
-            color: var(--rojo);
+            font-size: 1.4rem;
+            color: var(--rojo-principal);
         }
 
         .precio-bs {
@@ -279,42 +299,42 @@
             font-weight: 500;
         }
 
-        /* Sección métodos de pago */
+        /* Métodos de pago */
         .pagos-section {
-            background: linear-gradient(145deg, #fff6f3, #fff);
+            background: linear-gradient(145deg, #fff9f7, #fff);
             border-radius: 40px;
-            padding: 40px 30px;
-            margin: 60px 0;
-            box-shadow: var(--sombra-suave);
+            padding: 45px 35px;
+            margin: 70px 0;
+            box-shadow: var(--sombra);
         }
 
         .pagos-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
+            gap: 35px;
+            margin-top: 35px;
         }
 
         .pago-item {
             background: var(--blanco);
             border-radius: 28px;
-            padding: 25px 20px;
+            padding: 30px 20px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.02);
             border: 1px solid #f3d9d2;
         }
 
         .pago-item img {
-            max-height: 60px;
+            max-height: 65px;
             margin-bottom: 20px;
             object-fit: contain;
         }
 
-        .pago-item .qr-container {
+        .qr-container {
             margin: 15px auto;
-            width: 140px;
-            height: 140px;
-            background: #eee;
+            width: 150px;
+            height: 150px;
+            background: #f3f3f3;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -329,36 +349,34 @@
             font-weight: 500;
         }
 
-        /* Botón mapa */
+        /* Mapa */
         .mapa-boton {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            background-color: var(--rojo);
+            gap: 10px;
+            background-color: var(--rojo-principal);
             color: white;
-            padding: 16px 32px;
+            padding: 18px 36px;
             border-radius: 60px;
             text-decoration: none;
             font-weight: 600;
             font-size: 1.2rem;
             margin: 30px 0 20px;
             transition: 0.2s;
-            border: none;
-            cursor: pointer;
         }
 
         .mapa-boton:hover {
             background-color: #9e3b28;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
         }
 
         /* Footer */
         footer {
-            background-color: #1d1d1d;
-            color: #ccc;
-            padding: 40px 0 20px;
-            margin-top: 70px;
-            border-top: 5px solid var(--rojo);
+            background-color: #1e1e1e;
+            color: #bbb;
+            padding: 45px 0 25px;
+            margin-top: 80px;
+            border-top: 5px solid var(--rojo-principal);
         }
 
         .footer-content {
@@ -366,13 +384,13 @@
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            gap: 30px;
+            gap: 35px;
         }
 
         .credits {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 25px;
             flex-wrap: wrap;
         }
 
@@ -382,19 +400,19 @@
             font-weight: 500;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             background: #2f2f2f;
-            padding: 8px 18px;
+            padding: 10px 20px;
             border-radius: 40px;
             transition: 0.2s;
         }
 
         .credits a:hover {
-            background: var(--rojo);
+            background: var(--rojo-principal);
         }
 
         .credits img {
-            height: 28px;
+            height: 30px;
             width: auto;
             border-radius: 20px;
         }
@@ -402,12 +420,19 @@
         .venezuela-icon {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 8px;
             color: #aaa;
         }
 
         .venezuela-icon img {
-            height: 24px;
+            height: 26px;
+        }
+
+        /* Ajustes responsivos */
+        @media (max-width: 700px) {
+            .cat-header h2 { font-size: 1.5rem; }
+            .header-content { flex-direction: column; text-align: center; }
+            .tasa-card { flex-direction: column; align-items: stretch; text-align: center; }
         }
     </style>
 </head>
@@ -416,11 +441,11 @@
 <header>
     <div class="container header-content">
         <div class="logo-area">
-            <img src="logovarietyvida.jpeg" alt="Variety Vida Logo" onerror="this.src='https://via.placeholder.com/60x60?text=Logo'">
+            <img src="logovarietyvida.jpeg" alt="Variety Vida" onerror="this.src='https://via.placeholder.com/65x65?text=Logo'">
             <h1>Variety Vida</h1>
         </div>
-        <div class="header-whatsapp">
-            <a href="https://wa.me/584244525765?text=¡Hola!%20Quiero%20hacer%20un%20pedido" target="_blank">
+        <div class="whatsapp-btn">
+            <a href="https://wa.me/584244525765?text=¡Hola!%20Quiero%20información%20sobre%20productos" target="_blank">
                 <img src="logowhatsapp.png" alt="WhatsApp" onerror="this.src='https://via.placeholder.com/22x22?text=WA'"> +58 424-4525765
             </a>
         </div>
@@ -429,121 +454,124 @@
 
 <main class="container">
 
-    <!-- Banner disponibilidad -->
+    <!-- Banner de disponibilidad -->
     <div class="banner-info">
-        <i class="fas fa-box-open"></i>
+        <i class="fas fa-clock"></i>
         <div>
-            <strong>📦 Pedidos sujetos a disponibilidad de stock.</strong> Previa consulta con el vendedor. Algunos productos requieren 24h de anticipación. Nuestro equipo de atención te brindará toda la información.
+            <strong>📦 Pedidos sujetos a disponibilidad de stock.</strong> La mayoría de los productos requieren 24 horas de anticipación. Nuestro equipo de atención al cliente te dará toda la información que necesites.
         </div>
     </div>
 
-    <!-- Conversor Dólar / Bolívar -->
+    <!-- Conversor dólar / bolívar (opcional) -->
     <div class="tasa-card">
-        <label for="tasa">🇻🇪 Tasa Bs/USD:</label>
+        <label for="tasa"><i class="fas fa-exchange-alt"></i> Tasa Bs/USD:</label>
         <input type="number" id="tasa" value="36.50" step="0.01" min="1">
-        <span>Los precios en Bs se actualizan automáticamente</span>
+        <span>Precios en Bs referenciales</span>
     </div>
 
-    <!-- Navegación rápida -->
-    <div class="nav-cats">
-        <a href="#postres">🍰 Postres & Dulces</a>
-        <a href="#carniceria">🥩 Carnicería</a>
-        <a href="#charcuteria">🥓 Charcutería</a>
-        <a href="#eventos">🎉 Eventos</a>
-        <a href="#pagos">💳 Métodos de pago</a>
-    </div>
-
-    <!-- CATEGORÍA: POSTRES Y DULCES -->
-    <section id="postres" class="categoria">
-        <h2>🍰 Postres y Dulces</h2>
-        <div class="product-grid">
-            <!-- Yogurt casero -->
-            <div class="product-card" data-precio="3.00">
-                <div class="product-img" style="background-image: url('yogurt.jpg')"></div>
-                <div class="product-info">
-                    <h3>Yogurt casero</h3>
-                    <div class="product-desc">500 gr · Sabores: Fresa, ciruelas pasas, Piña, Melocotón</div>
-                    <div class="precios">
-                        <span class="precio-usd">$3,00</span>
-                        <span class="precio-bs" id="bs-yogurt">Bs 109,50</span>
+    <!-- ===== CATEGORÍAS DESPLEGABLES ===== -->
+    <!-- Categoría: Postres y Dulces -->
+    <div class="categoria" id="cat-postres">
+        <div class="cat-header">
+            <i class="fas fa-cake-candles"></i>
+            <h2>🍰 Postres y Dulces</h2>
+            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+        </div>
+        <div class="cat-content open" id="content-postres">
+            <div class="product-grid">
+                <!-- Yogurt casero -->
+                <div class="product-card" data-precio="3.00">
+                    <div class="product-img" style="background-image: url('yogurt.jpg')"></div>
+                    <div class="product-info">
+                        <h3>Yogurt casero</h3>
+                        <div class="product-desc">500 gr · Sabores: Fresa, ciruelas pasas, Piña, Melocotón</div>
+                        <div class="precios">
+                            <span class="precio-usd">$3,00</span>
+                            <span class="precio-bs">Bs 109,50</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Quesillo -->
+                <div class="product-card" data-precio="3.00">
+                    <div class="product-img" style="background-image: url('quesillo.jpg')"></div>
+                    <div class="product-info">
+                        <h3>Quesillo</h3>
+                        <div class="product-desc">Tradicional 500 g</div>
+                        <div class="precios">
+                            <span class="precio-usd">$3,00</span>
+                            <span class="precio-bs">Bs 109,50</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Arroz con leche (adicional) -->
+                <div class="product-card" data-precio="3.00">
+                    <div class="product-img" style="background-image: url('arrozconleche.jpg')"></div>
+                    <div class="product-info">
+                        <h3>Arroz con leche</h3>
+                        <div class="product-desc">Postre casero, 500 g</div>
+                        <div class="precios">
+                            <span class="precio-usd">$3,00</span>
+                            <span class="precio-bs">Bs 109,50</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- Quesillo -->
-            <div class="product-card" data-precio="3.00">
-                <div class="product-img" style="background-image: url('quesillo.jpg')"></div>
-                <div class="product-info">
-                    <h3>Quesillo</h3>
-                    <div class="product-desc">Tradicional, 500 g</div>
-                    <div class="precios">
-                        <span class="precio-usd">$3,00</span>
-                        <span class="precio-bs">Bs 109,50</span>
-                    </div>
-                </div>
+        </div>
+    </div>
+
+    <!-- Categoría: Carnicería -->
+    <div class="categoria" id="cat-carniceria">
+        <div class="cat-header">
+            <i class="fas fa-drumstick-bite"></i>
+            <h2>🥩 Carnicería</h2>
+            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+        </div>
+        <div class="cat-content" id="content-carniceria">
+            <div class="product-grid">
+                <div class="product-card" data-precio="12.00"><div class="product-img" style="background-image: url('carnemolida.jpg')"></div><div class="product-info"><h3>Carne molida</h3><div class="product-desc">1 kg</div><div class="precios"><span class="precio-usd">$12,00</span><span class="precio-bs">Bs 438,00</span></div></div></div>
+                <div class="product-card" data-precio="12.00"><div class="product-img" style="background-image: url('carneparamechar.jpg')"></div><div class="product-info"><h3>Carne para mechar</h3><div class="product-desc">1 kg</div><div class="precios"><span class="precio-usd">$12,00</span><span class="precio-bs">Bs 438,00</span></div></div></div>
+                <div class="product-card" data-precio="12.50"><div class="product-img" style="background-image: url('bisteck.png')"></div><div class="product-info"><h3>Bisteck</h3><div class="product-desc">1 kg</div><div class="precios"><span class="precio-usd">$12,50</span><span class="precio-bs">Bs 456,25</span></div></div></div>
+                <div class="product-card" data-precio="12.00"><div class="product-img" style="background-image: url('carneparaguisar.jpg')"></div><div class="product-info"><h3>Carne para guisar</h3><div class="product-desc">1 kg</div><div class="precios"><span class="precio-usd">$12,00</span><span class="precio-bs">Bs 438,00</span></div></div></div>
+                <div class="product-card" data-precio="5.00"><div class="product-img" style="background-image: url('polloentero.png')"></div><div class="product-info"><h3>Pollo entero</h3><div class="product-desc">1 kg</div><div class="precios"><span class="precio-usd">$5,00</span><span class="precio-bs">Bs 182,50</span></div></div></div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- CATEGORÍA: CARNICERÍA -->
-    <section id="carniceria" class="categoria">
-        <h2>🥩 Carnicería</h2>
-        <div class="product-grid">
-            <div class="product-card" data-precio="12.00">
-                <div class="product-img" style="background-image: url('carnemolida.jpg')"></div>
-                <div class="product-info"><h3>Carne molida</h3><div class="product-desc">1 kg</div><div class="precios"><span class="precio-usd">$12,00</span><span class="precio-bs">Bs 438,00</span></div></div>
-            </div>
-            <div class="product-card" data-precio="12.00">
-                <div class="product-img" style="background-image: url('carneparamechar.jpg')"></div>
-                <div class="product-info"><h3>Carne para mechar</h3><div class="product-desc">1 kg</div><div class="precios"><span class="precio-usd">$12,00</span><span class="precio-bs">Bs 438,00</span></div></div>
-            </div>
-            <div class="product-card" data-precio="12.50">
-                <div class="product-img" style="background-image: url('bisteck.png')"></div>
-                <div class="product-info"><h3>Bisteck</h3><div class="product-desc">1 kg</div><div class="precios"><span class="precio-usd">$12,50</span><span class="precio-bs">Bs 456,25</span></div></div>
-            </div>
-            <div class="product-card" data-precio="12.00">
-                <div class="product-img" style="background-image: url('carneparaguisar.jpg')"></div>
-                <div class="product-info"><h3>Carne para guisar</h3><div class="product-desc">1 kg</div><div class="precios"><span class="precio-usd">$12,00</span><span class="precio-bs">Bs 438,00</span></div></div>
-            </div>
-            <div class="product-card" data-precio="5.00">
-                <div class="product-img" style="background-image: url('polloentero.png')"></div>
-                <div class="product-info"><h3>Pollo entero</h3><div class="product-desc">1 kg</div><div class="precios"><span class="precio-usd">$5,00</span><span class="precio-bs">Bs 182,50</span></div></div>
+    <!-- Categoría: Charcutería -->
+    <div class="categoria" id="cat-charcuteria">
+        <div class="cat-header">
+            <i class="fas fa-bacon"></i>
+            <h2>🥓 Charcutería</h2>
+            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+        </div>
+        <div class="cat-content" id="content-charcuteria">
+            <div class="product-grid">
+                <div class="product-card" data-precio="7.00"><div class="product-img" style="background-image: url('chorizo.jpg')"></div><div class="product-info"><h3>Chorizo Ahumado</h3><div class="product-desc">1 kg</div><div class="precios"><span class="precio-usd">$7,00</span><span class="precio-bs">Bs 255,50</span></div></div></div>
+                <div class="product-card" data-precio="1.80"><div class="product-img" style="background-image: url('salchicha.jpg')"></div><div class="product-info"><h3>Salchicha</h3><div class="product-desc">1 kg</div><div class="precios"><span class="precio-usd">$1,80</span><span class="precio-bs">Bs 65,70</span></div></div></div>
+                <!-- Queso de cabra añadido (precio estimado) -->
+                <div class="product-card" data-precio="8.00"><div class="product-img" style="background-image: url('quesodecabra.jpg')"></div><div class="product-info"><h3>Queso de cabra</h3><div class="product-desc">Artesanal, 1 kg</div><div class="precios"><span class="precio-usd">$8,00</span><span class="precio-bs">Bs 292,00</span></div></div></div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- CATEGORÍA: CHARCUTERÍA -->
-    <section id="charcuteria" class="categoria">
-        <h2>🥓 Charcutería</h2>
-        <div class="product-grid">
-            <div class="product-card" data-precio="7.00">
-                <div class="product-img" style="background-image: url('chorizo.jpg')"></div>
-                <div class="product-info"><h3>Chorizo Ahumado</h3><div class="product-desc">1 kg</div><div class="precios"><span class="precio-usd">$7,00</span><span class="precio-bs">Bs 255,50</span></div></div>
-            </div>
-            <div class="product-card" data-precio="1.80">
-                <div class="product-img" style="background-image: url('salchicha.jpg')"></div>
-                <div class="product-info"><h3>Salchicha</h3><div class="product-desc">1 kg</div><div class="precios"><span class="precio-usd">$1,80</span><span class="precio-bs">Bs 65,70</span></div></div>
+    <!-- Categoría: Eventos -->
+    <div class="categoria" id="cat-eventos">
+        <div class="cat-header">
+            <i class="fas fa-glass-cheers"></i>
+            <h2>🎉 Eventos</h2>
+            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+        </div>
+        <div class="cat-content" id="content-eventos">
+            <div class="product-grid">
+                <div class="product-card" data-precio="2.00"><div class="product-img" style="background-image: url('carnedehamburguesa.png')"></div><div class="product-info"><h3>Carne de hamburguesa</h3><div class="product-desc">pack 6 unidades</div><div class="precios"><span class="precio-usd">$2,00</span><span class="precio-bs">Bs 73,00</span></div></div></div>
+                <div class="product-card" data-precio="6.00"><div class="product-img" style="background-image: url('bolasdecarne.jpg')"></div><div class="product-info"><h3>Bolitas de carne</h3><div class="product-desc">1 kg</div><div class="precios"><span class="precio-usd">$6,00</span><span class="precio-bs">Bs 219,00</span></div></div></div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- CATEGORÍA: EVENTOS -->
-    <section id="eventos" class="categoria">
-        <h2>🎉 Eventos</h2>
-        <div class="product-grid">
-            <div class="product-card" data-precio="2.00">
-                <div class="product-img" style="background-image: url('carnedehamburguesa.png')"></div>
-                <div class="product-info"><h3>Carne de hamburguesa</h3><div class="product-desc">pack 6 unidades</div><div class="precios"><span class="precio-usd">$2,00</span><span class="precio-bs">Bs 73,00</span></div></div>
-            </div>
-            <div class="product-card" data-precio="6.00">
-                <div class="product-img" style="background-image: url('bolasdecarne.jpg')"></div>
-                <div class="product-info"><h3>Bolitas de carne</h3><div class="product-desc">1 kg</div><div class="precios"><span class="precio-usd">$6,00</span><span class="precio-bs">Bs 219,00</span></div></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- MÉTODOS DE PAGO (con QR dinámico para pago móvil) -->
+    <!-- Sección de métodos de pago -->
     <section id="pagos" class="pagos-section">
-        <h2 style="color: var(--rojo); font-size: 2.2rem; margin-bottom: 20px;">💳 Métodos de pago</h2>
+        <h2 style="color: var(--rojo-principal); font-size: 2.3rem; margin-bottom: 10px;">💳 Métodos de pago</h2>
         <div class="pagos-grid">
             <!-- Pago móvil -->
             <div class="pago-item">
@@ -554,29 +582,28 @@
             <!-- Binance -->
             <div class="pago-item">
                 <img src="logobinance.png" alt="Binance" onerror="this.src='https://via.placeholder.com/100x50?text=Binance'">
-                <p style="margin: 15px 0"><strong>ID: 4244525765</strong></p>
-                <small>Escanea el código desde la app</small>
-                <!-- Podríamos poner un QR genérico, pero usaremos el logo como referencia -->
+                <p style="margin: 15px 0; font-weight: 600;">ID: 4244525765</p>
+                <small>Escanea desde la app</small>
             </div>
             <!-- Zelle -->
             <div class="pago-item">
                 <img src="Zelle_logo.jpg" alt="Zelle" onerror="this.src='https://via.placeholder.com/100x50?text=Zelle'">
-                <p style="margin: 15px 0"><strong>varietyvida@gmail.com</strong></p>
-                <small>Regístrate con el correo</small>
+                <p style="margin: 15px 0; font-weight: 600;">varietyvida@gmail.com</p>
+                <small>Regístrate con este correo</small>
             </div>
         </div>
-        <p style="text-align: center; margin-top: 30px; font-weight: 500;">🟢 Para abonar vía Binance o Zelle, escribe a nuestro WhatsApp y te indicamos los datos exactos.</p>
+        <p style="text-align: center; margin-top: 30px; font-weight: 500;">🟢 Para más detalles, escríbenos por WhatsApp.</p>
     </section>
 
-    <!-- MAPA Y UBICACIÓN -->
+    <!-- Mapa y ubicación -->
     <div style="text-align: center;">
         <a href="https://maps.app.goo.gl/Yco82LzVs3sJVcDS7" target="_blank" class="mapa-boton">
             <i class="fas fa-map-marker-alt"></i> ¿Cómo llegar? ¡Visítanos!
         </a>
-        <p style="color: #666;">📍 Los Guayos, Venezuela — Abrimos de 8am a 6pm</p>
+        <p style="color: #666; margin-top: 8px;">📍 Los Guayos, Venezuela — Abierto de 8am a 6pm</p>
     </div>
 
-    <!-- IMAGEN DE VENEZUELA (detalle) -->
+    <!-- Icono de Venezuela (decorativo) -->
     <div style="display: flex; justify-content: center; margin: 40px 0 10px;">
         <img src="mapadevenezuela.png" alt="Mapa de Venezuela" style="max-width: 120px; opacity: 0.5;">
     </div>
@@ -587,31 +614,31 @@
     <div class="container footer-content">
         <div class="credits">
             <a href="https://jhonmalorne.github.io/nexus.net/" target="_blank">
-                <img src="logomarketin.jpeg" alt="Nexus Marketing" onerror="this.src='https://via.placeholder.com/28x28?text=Nexus'"> Diseño: Nexus marketing.net
+                <img src="logomarketin.jpeg" alt="Nexus Marketing" onerror="this.src='https://via.placeholder.com/30x30?text=Nexus'"> Nexus marketing.net
             </a>
             <span style="color: #777;">|</span>
-            <a href="https://losguayosdigital.com/" target="_blank" style="background: transparent; padding:0; color: #aaa;">
+            <a href="https://losguayosdigital.com/" target="_blank" style="background: transparent; padding:0; color: #ccc;">
                 📢 Agradecimiento a Los Guayos Digital
             </a>
         </div>
         <div class="venezuela-icon">
-            <img src="mapadevenezuela.png" alt="Vzla" style="height: 20px;">
+            <img src="mapadevenezuela.png" alt="Vzla">
             <span>Hecho en Venezuela · 2025</span>
         </div>
     </div>
-    <div class="container" style="text-align: center; margin-top: 30px; font-size: 0.85rem; color: #777;">
-        <p>📞 WhatsApp: +58 424-4525765 | 📧 varietyvida@contacto</p>
+    <div class="container" style="text-align: center; margin-top: 30px; font-size: 0.9rem; color: #888;">
+        <p>📞 WhatsApp: +58 424-4525765 | 📧 varietyvida@contacto.com</p>
         <p>📦 Todos los precios están sujetos a disponibilidad y cambio sin previo aviso.</p>
     </div>
 </footer>
 
-<!-- JAVASCRIPT: conversor Bs y generación QR -->
+<!-- JavaScript: acordeón, conversor y QR -->
 <script>
     (function() {
-        // Generar QR para pago móvil
+        // 1. Generar QR para pago móvil
         if (document.getElementById('qr-pagomovil')) {
-            var qrData = 'Pago móvil: 04244525765 / Banco Mercantil / Doc 16897477';
-            var qr = new QRCode(document.getElementById('qr-pagomovil'), {
+            var qrData = 'Pago móvil: 04244525765 / Banco Mercantil / Documento 16897477';
+            new QRCode(document.getElementById('qr-pagomovil'), {
                 text: qrData,
                 width: 140,
                 height: 140,
@@ -621,7 +648,35 @@
             });
         }
 
-        // Conversor de divisas
+        // 2. Funcionalidad de acordeón para categorías
+        const categorias = document.querySelectorAll('.categoria');
+        categorias.forEach(cat => {
+            const header = cat.querySelector('.cat-header');
+            const content = cat.querySelector('.cat-content');
+            const icon = header.querySelector('.toggle-icon i');
+
+            header.addEventListener('click', () => {
+                // Cerrar otras (opcional, comentar si se desea múltiples abiertas)
+                // Si quieres que solo una esté abierta a la vez, descomenta:
+                /*
+                categorias.forEach(c => {
+                    if (c !== cat) {
+                        c.querySelector('.cat-content').classList.remove('open');
+                        c.querySelector('.toggle-icon i').className = 'fas fa-chevron-down';
+                    }
+                });
+                */
+
+                content.classList.toggle('open');
+                if (content.classList.contains('open')) {
+                    icon.className = 'fas fa-chevron-up';
+                } else {
+                    icon.className = 'fas fa-chevron-down';
+                }
+            });
+        });
+
+        // 3. Conversor de divisas
         const tasaInput = document.getElementById('tasa');
         const productos = document.querySelectorAll('.product-card');
         
@@ -633,7 +688,6 @@
                 const precioUsdElem = card.querySelector('.precio-usd');
                 const precioBsElem = card.querySelector('.precio-bs');
                 if (precioUsdElem && precioBsElem) {
-                    // Extraer precio USD (formato "$3,00" o "$12.50")
                     let usdText = precioUsdElem.innerText.replace('$', '').replace(',', '.').trim();
                     let usd = parseFloat(usdText);
                     if (!isNaN(usd)) {
@@ -647,19 +701,19 @@
         tasaInput.addEventListener('input', actualizarPrecios);
         actualizarPrecios(); // inicializar
 
-        // Arreglar posibles errores de imágenes (cargar placeholder si no existen)
+        // 4. Fallback para imágenes que no carguen
         document.querySelectorAll('img').forEach(img => {
             img.onerror = function() {
-                this.src = 'https://via.placeholder.com/150x150?text=Imagen';
+                this.src = 'https://via.placeholder.com/150x150?text=Variety';
             };
         });
     })();
 </script>
 
-<!-- Asegurar que los estilos de las imágenes de fondo también tengan un fallback (color) -->
+<!-- Estilo adicional para fondo de imágenes de productos -->
 <style>
     .product-img {
-        background-color: #f0d9d4; /* color fallback */
+        background-color: #f0d9d4;
         background-size: cover;
         background-position: center;
     }
