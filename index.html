@@ -3,627 +3,692 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Variety Vida · Productos artesanales</title>
-    <!-- Fuente Inter e íconos Font Awesome -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <title>Variety Vida · Productos Premium</title>
+    <!-- Font Awesome 6 (iconos profesionales) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Librería para generar QR (pago móvil) -->
-    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
     <style>
+        /* ===== RESET Y VARIABLES ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #fefaf8;
-            color: #1f1f1f;
+            background-color: #fafafa;
+            color: #1e1e1e;
             line-height: 1.5;
         }
 
-        /* Paleta de colores: rojo corporativo terroso + blanco */
         :root {
-            --rojo-principal: #b3422d;    /* rojo no brillante */
-            --rojo-claro: #e6b2a8;
-            --blanco: #ffffff;
-            --gris-fondo: #f5f0ef;
-            --texto-oscuro: #2e2e2e;
-            --sombra: 0 8px 20px rgba(0,0,0,0.03), 0 2px 6px rgba(0,0,0,0.02);
+            --rojo-principal: #C62828;      /* rojo del logo */
+            --rojo-oscuro: #8B1E1E;
+            --rojo-suave: #FBE9E7;
+            --blanco-puro: #FFFFFF;
+            --gris-fondo: #F5F5F5;
+            --gris-borde: #E0E0E0;
+            --sombra-caja: 0 20px 30px -10px rgba(198, 40, 40, 0.15);
         }
 
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* Header */
+        /* ===== HEADER ===== */
         header {
-            background-color: var(--blanco);
-            box-shadow: var(--sombra);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 3px solid var(--rojo-principal);
-        }
-
-        .header-content {
+            background: var(--blanco-puro);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            padding: 1rem 5%;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0.8rem 0;
             flex-wrap: wrap;
-            gap: 15px;
+            border-bottom: 3px solid var(--rojo-principal);
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
 
         .logo-area {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 1rem;
         }
 
         .logo-area img {
-            height: 65px;
+            height: 60px;
             width: auto;
-            border-radius: 10px;
+            border-radius: 12px;
+            transition: transform 0.2s;
+        }
+
+        .logo-area img:hover {
+            transform: scale(1.02);
         }
 
         .logo-area h1 {
             font-size: 2rem;
-            font-weight: 700;
-            color: var(--rojo-principal);
+            font-weight: 600;
             letter-spacing: -0.5px;
+            background: linear-gradient(145deg, var(--rojo-principal), #B71C1C);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .whatsapp-btn a {
-            background-color: #25D366;
+        .stock-badge {
+            background: var(--rojo-principal);
             color: white;
-            padding: 12px 24px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
+            padding: 0.6rem 1.5rem;
+            border-radius: 60px;
+            font-size: 0.95rem;
+            font-weight: 500;
             display: flex;
             align-items: center;
             gap: 10px;
-            transition: 0.2s;
-            box-shadow: 0 6px 14px rgba(37, 211, 102, 0.2);
+            box-shadow: 0 6px 14px rgba(198,40,40,0.3);
         }
 
-        .whatsapp-btn a:hover {
-            background-color: #20b859;
-            transform: scale(1.02);
+        .stock-badge i {
+            font-size: 1.1rem;
         }
 
-        .whatsapp-btn img {
-            height: 22px;
-            width: 22px;
-            filter: brightness(0) invert(1);
+        /* ===== BANNER INFORMATIVO ===== */
+        .alert-banner {
+            background: linear-gradient(120deg, #fff3f0, #ffffff);
+            border-left: 8px solid var(--rojo-principal);
+            border-right: 8px solid var(--rojo-principal);
+            padding: 1.2rem 5%;
+            margin: 1.5rem 0 2rem;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #2c3e50;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.02);
+            border-radius: 0px;
         }
 
-        /* Banner informativo */
-        .banner-info {
-            background-color: #fff3e6;
-            border-left: 6px solid var(--rojo-principal);
-            padding: 18px 22px;
-            border-radius: 0 16px 16px 0;
-            margin: 30px 0 20px;
-            font-weight: 500;
-            color: #4a3f38;
-            box-shadow: var(--sombra);
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .banner-info i {
-            font-size: 2.4rem;
+        .alert-banner i {
             color: var(--rojo-principal);
+            margin: 0 8px;
+            font-size: 1.2rem;
         }
 
-        /* Categorías desplegables (acordeón) */
-        .categoria {
-            margin: 20px 0;
-            border-radius: 24px;
-            background-color: var(--blanco);
-            box-shadow: var(--sombra);
+        /* ===== CONTENEDOR PRINCIPAL ===== */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* ===== CATEGORÍAS ACORDEÓN ===== */
+        .categorias-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            margin: 2.5rem 0;
+        }
+
+        .categoria-item {
+            background: var(--blanco-puro);
+            border-radius: 28px;
             overflow: hidden;
-            border: 1px solid #f0e0db;
+            box-shadow: 0 10px 25px -8px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(198,40,40,0.15);
         }
 
-        .cat-header {
-            background-color: var(--blanco);
-            padding: 20px 28px;
-            cursor: pointer;
+        .categoria-titulo {
+            padding: 1.5rem 2rem;
+            background: white;
             display: flex;
             align-items: center;
-            gap: 16px;
-            transition: 0.2s;
-            border-bottom: 2px solid transparent;
+            gap: 1rem;
+            cursor: pointer;
+            border-left: 10px solid var(--rojo-principal);
+            transition: background 0.2s;
         }
 
-        .cat-header:hover {
-            background-color: #fff3f0;
+        .categoria-titulo:hover {
+            background: #fef5f4;
         }
 
-        .cat-header i {
-            font-size: 2rem;
+        .categoria-titulo i {
+            font-size: 2.2rem;
             color: var(--rojo-principal);
-            width: 40px;
+            width: 50px;
+            text-align: center;
         }
 
-        .cat-header h2 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: var(--texto-oscuro);
+        .categoria-titulo h2 {
+            font-size: 2rem;
+            font-weight: 550;
+            color: #1e1e1e;
             flex: 1;
         }
 
-        .cat-header .toggle-icon {
+        .categoria-titulo .chevron {
             font-size: 1.8rem;
             color: var(--rojo-principal);
-            transition: transform 0.3s;
+            transition: transform 0.4s ease;
         }
 
-        .cat-content {
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s;
-            padding: 0 28px;
-            background-color: #fffcfb;
+        .categoria-item.abierto .categoria-titulo .chevron {
+            transform: rotate(180deg);
         }
 
-        .cat-content.open {
-            max-height: 2000px; /* valor grande para que quepa todo */
-            opacity: 1;
-            padding: 28px;
+        .categoria-contenido {
+            display: none;
+            padding: 2rem;
+            background: #fcfcfc;
+            border-top: 1px dashed var(--gris-borde);
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.8rem;
         }
 
-        /* Grid de productos */
-        .product-grid {
+        .categoria-item.abierto .categoria-contenido {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 30px;
         }
 
+        /* ===== TARJETA DE PRODUCTO ===== */
         .product-card {
-            background-color: var(--blanco);
+            background: white;
             border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
-            transition: transform 0.2s, box-shadow 0.2s;
-            border: 1px solid #fceae5;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.02);
+            transition: transform 0.25s, box-shadow 0.3s;
+            border: 1px solid #f0f0f0;
             display: flex;
             flex-direction: column;
         }
 
         .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -10px rgba(179, 66, 45, 0.15);
-            border-color: var(--rojo-claro);
+            transform: translateY(-6px);
+            box-shadow: 0 25px 30px -12px rgba(198,40,40,0.25);
+            border-color: var(--rojo-principal);
         }
 
         .product-img {
             height: 180px;
-            background-size: cover;
-            background-position: center;
-            background-color: #f7eae7;
-        }
-
-        .product-info {
-            padding: 20px 16px 16px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .product-info h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 6px;
-            color: #1f1f1f;
-        }
-
-        .product-desc {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 12px;
-        }
-
-        .precio-usd {
-            font-weight: 700;
-            font-size: 1.4rem;
-            color: var(--rojo-principal);
-            margin-top: auto;
-            text-align: right;
-            border-top: 1px dashed #ddd;
-            padding-top: 12px;
-        }
-
-        /* Métodos de pago */
-        .pagos-section {
-            background: linear-gradient(145deg, #fff9f7, #fff);
-            border-radius: 40px;
-            padding: 45px 35px;
-            margin: 70px 0;
-            box-shadow: var(--sombra);
-        }
-
-        .pagos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 35px;
-            margin-top: 35px;
-        }
-
-        .pago-item {
-            background: var(--blanco);
-            border-radius: 28px;
-            padding: 30px 20px;
-            text-align: center;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.02);
-            border: 1px solid #f3d9d2;
-        }
-
-        .pago-item img {
-            max-height: 65px;
-            margin-bottom: 20px;
-            object-fit: contain;
-        }
-
-        .qr-container {
-            margin: 15px auto;
-            width: 150px;
-            height: 150px;
-            background: #f3f3f3;
+            background: #fefefe;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 20px;
-            overflow: hidden;
+            padding: 1.2rem;
+            border-bottom: 2px dotted var(--gris-borde);
         }
 
-        .pago-item small {
-            display: block;
-            margin-top: 12px;
-            color: #555;
-            font-weight: 500;
+        .product-img img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: cover;
+            border-radius: 18px;
         }
 
-        /* Mapa */
-        .mapa-boton {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background-color: var(--rojo-principal);
-            color: white;
-            padding: 18px 36px;
-            border-radius: 60px;
-            text-decoration: none;
+        .product-info {
+            padding: 1.4rem 1rem 1.2rem;
+            text-align: center;
+        }
+
+        .product-info h3 {
+            font-size: 1.25rem;
             font-weight: 600;
-            font-size: 1.2rem;
-            margin: 30px 0 20px;
+            color: #222;
+            margin-bottom: 0.4rem;
+        }
+
+        .product-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--rojo-principal);
+            line-height: 1.2;
+        }
+
+        .product-price small {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #5e5e5e;
+        }
+
+        .product-desc {
+            font-size: 0.9rem;
+            color: #6f6f6f;
+            margin-top: 0.4rem;
+            border-top: 1px solid #eee;
+            padding-top: 0.5rem;
+        }
+
+        /* ===== MÉTODOS DE PAGO (DISEÑO PREMIUM) ===== */
+        .payment-section {
+            background: white;
+            border-radius: 40px;
+            padding: 3rem 2.5rem;
+            margin: 4rem 0;
+            box-shadow: var(--sombra-caja);
+            border: 1px solid var(--gris-borde);
+        }
+
+        .payment-section h2 {
+            font-size: 2.5rem;
+            color: var(--rojo-principal);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 2.5rem;
+            border-bottom: 4px solid var(--rojo-principal);
+            padding-bottom: 0.7rem;
+        }
+
+        .payment-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            justify-content: center;
+        }
+
+        .payment-card {
+            flex: 1 1 240px;
+            background: var(--gris-fondo);
+            border-radius: 32px;
+            padding: 2rem 1.5rem;
+            text-align: center;
             transition: 0.2s;
+            border: 2px solid transparent;
         }
 
-        .mapa-boton:hover {
-            background-color: #9e3b28;
-            transform: translateY(-3px);
+        .payment-card:hover {
+            border-color: var(--rojo-principal);
+            background: white;
         }
 
-        /* Footer */
-        footer {
-            background-color: #1e1e1e;
-            color: #bbb;
-            padding: 45px 0 25px;
-            margin-top: 80px;
-            border-top: 5px solid var(--rojo-principal);
+        .payment-card img {
+            max-width: 80px;
+            max-height: 80px;
+            margin-bottom: 1.2rem;
         }
 
-        .footer-content {
+        .payment-card h3 {
+            font-size: 1.6rem;
+            color: var(--rojo-oscuro);
+            margin-bottom: 1rem;
+        }
+
+        .payment-card p {
+            font-size: 1rem;
+            color: #2d2d2d;
+            word-break: break-word;
+        }
+
+        .qr-box {
+            width: 130px;
+            height: 130px;
+            background: white;
+            border-radius: 28px;
+            margin: 1rem auto;
+            padding: 0.7rem;
+            border: 2px solid var(--rojo-principal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qr-box img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 12px;
+        }
+
+        /* ===== BLOQUE UBICACIÓN + WHATSAPP ===== */
+        .contact-block {
             display: flex;
             flex-wrap: wrap;
+            align-items: center;
             justify-content: space-between;
-            align-items: center;
-            gap: 35px;
+            background: white;
+            border-radius: 50px;
+            padding: 2rem 2.5rem;
+            margin: 3rem 0;
+            box-shadow: 0 15px 25px -10px rgba(0,0,0,0.05);
+            border: 1px solid var(--gris-borde);
         }
 
-        .credits {
+        .map-link {
             display: flex;
             align-items: center;
-            gap: 25px;
-            flex-wrap: wrap;
+            gap: 1.5rem;
         }
 
-        .credits a {
+        .map-icon {
+            background: var(--rojo-principal);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            box-shadow: 0 10px 15px -5px #C62828;
+        }
+
+        .map-text h3 {
+            font-size: 1.8rem;
+            color: var(--rojo-oscuro);
+        }
+
+        .map-text a {
+            color: var(--rojo-principal);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid currentColor;
+        }
+
+        .whatsapp-block {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: #25D366;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 100px;
+            box-shadow: 0 8px 16px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-block img {
+            width: 40px;
+            height: 40px;
+            filter: brightness(0) invert(1);
+        }
+
+        .whatsapp-block a {
             color: white;
             text-decoration: none;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: #2f2f2f;
-            padding: 10px 20px;
-            border-radius: 40px;
-            transition: 0.2s;
+            font-size: 1.3rem;
+            font-weight: 600;
         }
 
-        .credits a:hover {
-            background: var(--rojo-principal);
+        /* ===== FOOTER CON CRÉDITOS ===== */
+        footer {
+            background: #121212;
+            color: #ddd;
+            padding: 3rem 5% 2rem;
+            margin-top: 5rem;
+            border-top: 6px solid var(--rojo-principal);
         }
 
-        .credits img {
-            height: 30px;
-            width: auto;
-            border-radius: 20px;
+        .footer-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            justify-content: space-between;
         }
 
-        .venezuela-icon {
+        .footer-col img {
+            height: 60px;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+        }
+
+        .footer-col p {
+            margin: 0.6rem 0;
             display: flex;
             align-items: center;
             gap: 8px;
-            color: #aaa;
         }
 
-        .venezuela-icon img {
-            height: 26px;
+        .footer-col i {
+            color: var(--rojo-principal);
+            width: 24px;
         }
 
-        /* Ajustes responsivos */
+        .footer-col a {
+            color: #ffa8a8;
+            text-decoration: none;
+            border-bottom: 1px dotted #555;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .venezuela-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #2a2a2a;
+            padding: 0.8rem 1.5rem;
+            border-radius: 60px;
+        }
+
+        .venezuela-badge img {
+            height: 40px;
+            border-radius: 6px;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 2.5rem;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* ===== WHATSAPP FLOTANTE ===== */
+        .float-wa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+            z-index: 100;
+            transition: 0.2s;
+            border: 3px solid white;
+        }
+
+        .float-wa:hover {
+            transform: scale(1.08);
+        }
+
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 700px) {
-            .cat-header h2 { font-size: 1.5rem; }
-            .header-content { flex-direction: column; text-align: center; }
+            .categoria-titulo h2 { font-size: 1.5rem; }
+            .payment-card { flex-basis: 100%; }
+            .contact-block { flex-direction: column; gap: 1.5rem; }
         }
     </style>
 </head>
 <body>
 
+<!-- ========== HEADER ========== -->
 <header>
-    <div class="container header-content">
-        <div class="logo-area">
-            <img src="logovarietyvida.jpeg" alt="Variety Vida" onerror="this.src='https://via.placeholder.com/65x65?text=Logo'">
-            <h1>Variety Vida</h1>
-        </div>
-        <div class="whatsapp-btn">
-            <a href="https://wa.me/584244525765?text=¡Hola!%20Quiero%20información%20sobre%20productos" target="_blank">
-                <img src="logowhatsapp.png" alt="WhatsApp" onerror="this.src='https://via.placeholder.com/22x22?text=WA'"> +58 424-4525765
-            </a>
-        </div>
+    <div class="logo-area">
+        <img src="logovarietyvida.jpeg" alt="Variety Vida" onerror="this.src='https://via.placeholder.com/60?text=VV'">
+        <h1>Variety Vida</h1>
+    </div>
+    <div class="stock-badge">
+        <i class="fas fa-hourglass-half"></i> <span>Disponibilidad 24h · Stock limitado</span>
     </div>
 </header>
 
-<main class="container">
+<!-- ========== BANNER INFORMATIVO ========== -->
+<div class="alert-banner">
+    <i class="fas fa-clock"></i> Pedidos sujetos a disponibilidad. La mayoría de productos requieren <strong>24 horas de anticipación</strong>. 
+    Consulta con nuestro equipo de atención. <i class="fas fa-headset"></i>
+</div>
 
-    <!-- Banner de disponibilidad -->
-    <div class="banner-info">
-        <i class="fas fa-clock"></i>
-        <div>
-            <strong>📦 Pedidos sujetos a disponibilidad de stock.</strong> La mayoría de los productos requieren 24 horas de anticipación. Nuestro equipo de atención al cliente te dará toda la información que necesites.
-        </div>
-    </div>
+<div class="container">
+    <!-- ========== CATEGORÍAS DESPLEGABLES (ACORDEÓN) ========== -->
+    <section class="categorias-grid">
 
-    <!-- ===== CATEGORÍAS DESPLEGABLES ===== -->
-    <!-- Categoría: Postres y Dulces -->
-    <div class="categoria" id="cat-postres">
-        <div class="cat-header">
-            <i class="fas fa-cake-candles"></i>
-            <h2>🍰 Postres y Dulces</h2>
-            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
-        </div>
-        <div class="cat-content open" id="content-postres">
-            <div class="product-grid">
+        <!-- CAT 1: POSTRES Y DULCES -->
+        <div class="categoria-item" id="cat-dulces">
+            <div class="categoria-titulo" onclick="toggleCategoria('cat-dulces')">
+                <i class="fas fa-candy-cane"></i>
+                <h2>Postres y Dulces</h2>
+                <span class="chevron"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="categoria-contenido">
                 <!-- Yogurt casero -->
                 <div class="product-card">
-                    <div class="product-img" style="background-image: url('yogurt.jpg')"></div>
+                    <div class="product-img"><img src="yogurt.jpg" alt="Yogurt casero" onerror="this.src='https://via.placeholder.com/200?text=Yogurt'"></div>
                     <div class="product-info">
                         <h3>Yogurt casero</h3>
-                        <div class="product-desc">500 gr · Sabores: Fresa, ciruelas pasas, Piña, Melocotón</div>
-                        <div class="precio-usd">$3,00</div>
+                        <div class="product-price">$3 <small>unidad</small></div>
+                        <div class="product-desc">500 gr · Sabores: Fresa, Ciruelas, Piña, Melocotón</div>
                     </div>
                 </div>
                 <!-- Quesillo -->
                 <div class="product-card">
-                    <div class="product-img" style="background-image: url('quesillo.jpg')"></div>
+                    <div class="product-img"><img src="quesillo.jpg" alt="Quesillo" onerror="this.src='https://via.placeholder.com/200?text=Quesillo'"></div>
                     <div class="product-info">
                         <h3>Quesillo</h3>
-                        <div class="product-desc">Tradicional 500 g</div>
-                        <div class="precio-usd">$3,00</div>
-                    </div>
-                </div>
-                <!-- Arroz con leche (adicional) -->
-                <div class="product-card">
-                    <div class="product-img" style="background-image: url('arrozconleche.jpg')"></div>
-                    <div class="product-info">
-                        <h3>Arroz con leche</h3>
-                        <div class="product-desc">Postre casero, 500 g</div>
-                        <div class="precio-usd">$3,00</div>
+                        <div class="product-price">$3 <small>unidad</small></div>
+                        <div class="product-desc">Tradicional, suave y delicioso</div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Categoría: Carnicería -->
-    <div class="categoria" id="cat-carniceria">
-        <div class="cat-header">
-            <i class="fas fa-drumstick-bite"></i>
-            <h2>🥩 Carnicería</h2>
-            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
-        </div>
-        <div class="cat-content" id="content-carniceria">
-            <div class="product-grid">
-                <div class="product-card"><div class="product-img" style="background-image: url('carnemolida.jpg')"></div><div class="product-info"><h3>Carne molida</h3><div class="product-desc">1 kg</div><div class="precio-usd">$12,00</div></div></div>
-                <div class="product-card"><div class="product-img" style="background-image: url('carneparamechar.jpg')"></div><div class="product-info"><h3>Carne para mechar</h3><div class="product-desc">1 kg</div><div class="precio-usd">$12,00</div></div></div>
-                <div class="product-card"><div class="product-img" style="background-image: url('bisteck.png')"></div><div class="product-info"><h3>Bisteck</h3><div class="product-desc">1 kg</div><div class="precio-usd">$12,50</div></div></div>
-                <div class="product-card"><div class="product-img" style="background-image: url('carneparaguisar.jpg')"></div><div class="product-info"><h3>Carne para guisar</h3><div class="product-desc">1 kg</div><div class="precio-usd">$12,00</div></div></div>
-                <div class="product-card"><div class="product-img" style="background-image: url('polloentero.png')"></div><div class="product-info"><h3>Pollo entero</h3><div class="product-desc">1 kg</div><div class="precio-usd">$5,00</div></div></div>
+        <!-- CAT 2: CARNICERÍA -->
+        <div class="categoria-item" id="cat-carne">
+            <div class="categoria-titulo" onclick="toggleCategoria('cat-carne')">
+                <i class="fas fa-drumstick-bite"></i>
+                <h2>Carnicería</h2>
+                <span class="chevron"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="categoria-contenido">
+                <div class="product-card"><div class="product-img"><img src="carnemolida.jpg" alt="Carne molida" onerror="this.src='https://via.placeholder.com/200?text=Carne+molida'"></div><div class="product-info"><h3>Carne molida</h3><div class="product-price">$12 <small>/kg</small></div></div></div>
+                <div class="product-card"><div class="product-img"><img src="carneparamechar.jpg" alt="Carne para mechar" onerror="this.src='https://via.placeholder.com/200?text=Mechar'"></div><div class="product-info"><h3>Carne para mechar</h3><div class="product-price">$12 <small>/kg</small></div></div></div>
+                <div class="product-card"><div class="product-img"><img src="bisteck.png" alt="Bisteck" onerror="this.src='https://via.placeholder.com/200?text=Bisteck'"></div><div class="product-info"><h3>Bisteck</h3><div class="product-price">$12.5 <small>/kg</small></div></div></div>
+                <div class="product-card"><div class="product-img"><img src="carneparaguisar.jpg" alt="Carne para guisar" onerror="this.src='https://via.placeholder.com/200?text=Guisar'"></div><div class="product-info"><h3>Carne para guisar</h3><div class="product-price">$12 <small>/kg</small></div></div></div>
+                <div class="product-card"><div class="product-img"><img src="polloentero.png" alt="Pollo entero" onerror="this.src='https://via.placeholder.com/200?text=Pollo'"></div><div class="product-info"><h3>Pollo entero</h3><div class="product-price">$5 <small>/kg</small></div></div></div>
             </div>
         </div>
-    </div>
 
-    <!-- Categoría: Charcutería -->
-    <div class="categoria" id="cat-charcuteria">
-        <div class="cat-header">
-            <i class="fas fa-bacon"></i>
-            <h2>🥓 Charcutería</h2>
-            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
-        </div>
-        <div class="cat-content" id="content-charcuteria">
-            <div class="product-grid">
-                <div class="product-card"><div class="product-img" style="background-image: url('chorizo.jpg')"></div><div class="product-info"><h3>Chorizo Ahumado</h3><div class="product-desc">1 kg</div><div class="precio-usd">$7,00</div></div></div>
-                <div class="product-card"><div class="product-img" style="background-image: url('salchicha.jpg')"></div><div class="product-info"><h3>Salchicha</h3><div class="product-desc">1 kg</div><div class="precio-usd">$1,80</div></div></div>
-                <!-- Queso de cabra añadido (precio estimado) -->
-                <div class="product-card"><div class="product-img" style="background-image: url('quesodecabra.jpg')"></div><div class="product-info"><h3>Queso de cabra</h3><div class="product-desc">Artesanal, 1 kg</div><div class="precio-usd">$8,00</div></div></div>
-                <!-- Leche fresca de cabra (precio estimado) -->
-                <div class="product-card"><div class="product-img" style="background-image: url('lechefrescadecabra.jpg')"></div><div class="product-info"><h3>Leche fresca de cabra</h3><div class="product-desc">Botella 1 L</div><div class="precio-usd">$4,00</div></div></div>
+        <!-- CAT 3: CHARCUTERÍA -->
+        <div class="categoria-item" id="cat-charcu">
+            <div class="categoria-titulo" onclick="toggleCategoria('cat-charcu')">
+                <i class="fas fa-bacon"></i>
+                <h2>Charcutería</h2>
+                <span class="chevron"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="categoria-contenido">
+                <div class="product-card"><div class="product-img"><img src="chorizo.jpg" alt="Chorizo ahumado" onerror="this.src='https://via.placeholder.com/200?text=Chorizo'"></div><div class="product-info"><h3>Chorizo Ahumado</h3><div class="product-price">$7 <small>/kg</small></div></div></div>
+                <div class="product-card"><div class="product-img"><img src="salchicha.jpg" alt="Salchicha" onerror="this.src='https://via.placeholder.com/200?text=Salchicha'"></div><div class="product-info"><h3>Salchicha</h3><div class="product-price">$1.8 <small>/kg</small></div></div></div>
             </div>
         </div>
-    </div>
 
-    <!-- Categoría: Eventos -->
-    <div class="categoria" id="cat-eventos">
-        <div class="cat-header">
-            <i class="fas fa-glass-cheers"></i>
-            <h2>🎉 Eventos</h2>
-            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
-        </div>
-        <div class="cat-content" id="content-eventos">
-            <div class="product-grid">
-                <div class="product-card"><div class="product-img" style="background-image: url('carnedehamburguesa.png')"></div><div class="product-info"><h3>Carne de hamburguesa</h3><div class="product-desc">pack 6 unidades</div><div class="precio-usd">$2,00</div></div></div>
-                <div class="product-card"><div class="product-img" style="background-image: url('bolasdecarne.jpg')"></div><div class="product-info"><h3>Bolitas de carne</h3><div class="product-desc">1 kg</div><div class="precio-usd">$6,00</div></div></div>
+        <!-- CAT 4: EVENTOS -->
+        <div class="categoria-item" id="cat-eventos">
+            <div class="categoria-titulo" onclick="toggleCategoria('cat-eventos')">
+                <i class="fas fa-glass-cheers"></i>
+                <h2>Eventos</h2>
+                <span class="chevron"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="categoria-contenido">
+                <div class="product-card"><div class="product-img"><img src="carnedehamburguesa.png" alt="Carne de hamburguesa" onerror="this.src='https://via.placeholder.com/200?text=Hamburguesa'"></div><div class="product-info"><h3>Carne de hamburguesa</h3><div class="product-price">$2 <small>pack 6u</small></div></div></div>
+                <div class="product-card"><div class="product-img"><img src="bolasdecarne.jpg" alt="Bolitas de carne" onerror="this.src='https://via.placeholder.com/200?text=Bolitas+carne'"></div><div class="product-info"><h3>Bolitas de carne</h3><div class="product-price">$6 <small>/kg</small></div></div></div>
             </div>
         </div>
-    </div>
-
-    <!-- Sección de métodos de pago -->
-    <section id="pagos" class="pagos-section">
-        <h2 style="color: var(--rojo-principal); font-size: 2.3rem; margin-bottom: 10px;">💳 Métodos de pago</h2>
-        <div class="pagos-grid">
-            <!-- Pago móvil -->
-            <div class="pago-item">
-                <img src="logopagomovil.png" alt="Pago Móvil" onerror="this.src='https://via.placeholder.com/100x50?text=PagoMóvil'">
-                <div class="qr-container" id="qr-pagomovil"></div>
-                <small>0424-4525765 · Bco Mercantil<br>Doc: 16897477</small>
-            </div>
-            <!-- Binance -->
-            <div class="pago-item">
-                <img src="logobinance.png" alt="Binance" onerror="this.src='https://via.placeholder.com/100x50?text=Binance'">
-                <p style="margin: 15px 0; font-weight: 600;">ID: 4244525765</p>
-                <small>Escanea desde la app</small>
-            </div>
-            <!-- Zelle -->
-            <div class="pago-item">
-                <img src="Zelle_logo.jpg" alt="Zelle" onerror="this.src='https://via.placeholder.com/100x50?text=Zelle'">
-                <p style="margin: 15px 0; font-weight: 600;">varietyvida@gmail.com</p>
-                <small>Regístrate con este correo</small>
-            </div>
-        </div>
-        <p style="text-align: center; margin-top: 30px; font-weight: 500;">🟢 Para más detalles, escríbenos por WhatsApp.</p>
     </section>
 
-    <!-- Mapa y ubicación -->
-    <div style="text-align: center;">
-        <a href="https://maps.app.goo.gl/Yco82LzVs3sJVcDS7" target="_blank" class="mapa-boton">
-            <i class="fas fa-map-marker-alt"></i> ¿Cómo llegar? ¡Visítanos!
-        </a>
-        <p style="color: #666; margin-top: 8px;">📍 Los Guayos, Venezuela — Abierto de 8am a 6pm</p>
+    <!-- ========== MÉTODOS DE PAGO ========== -->
+    <section class="payment-section">
+        <h2><i class="fas fa-shield-alt"></i> Métodos de pago</h2>
+        <div class="payment-grid">
+            <!-- Pago móvil -->
+            <div class="payment-card">
+                <img src="logopagomovil.png" alt="Pago móvil" onerror="this.src='https://via.placeholder.com/80?text=PM'">
+                <h3>Pago Móvil</h3>
+                <p><strong>0424-4525765</strong> (Mercantil)</p>
+                <p>Documento: 16897477</p>
+                <div class="qr-box">
+                    <img src="logopagomovil.png" alt="QR referencial" style="opacity:0.8;">
+                </div>
+                <p style="font-size:0.8rem;">*Código QR (referencial)</p>
+            </div>
+            <!-- Binance -->
+            <div class="payment-card">
+                <img src="logobinance.png" alt="Binance" onerror="this.src='https://via.placeholder.com/80?text=Binance'">
+                <h3>Binance</h3>
+                <p>ID: 04244525765</p>
+                <p>Transferencias cripto</p>
+            </div>
+            <!-- Zelle -->
+            <div class="payment-card">
+                <img src="Zelle_logo.jpg" alt="Zelle" onerror="this.src='https://via.placeholder.com/80?text=Zelle'">
+                <h3>Zelle</h3>
+                <p>Email: varietyvida@email.com</p>
+                <p>+58 424-4525765</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== MAPA Y WHATSAPP ========== -->
+    <div class="contact-block">
+        <div class="map-link">
+            <div class="map-icon"><i class="fas fa-map-pin"></i></div>
+            <div class="map-text">
+                <h3>Ubicación</h3>
+                <a href="https://maps.app.goo.gl/Yco82LzVs3sJVcDS7" target="_blank">¡Llega en 2 clics!</a>
+                <p><i class="fas fa-store-alt"></i> Local Variety Vida</p>
+            </div>
+        </div>
+        <div class="whatsapp-block">
+            <img src="logowhatsapp.png" alt="WhatsApp" onerror="this.src='https://via.placeholder.com/40?text=WA'">
+            <a href="https://wa.me/584244525765?text=Hola%20Variety%20Vida%2C%20quiero%20informaci%C3%B3n%20sobre%20productos" target="_blank">+58 424-4525765</a>
+        </div>
     </div>
+</div> <!-- fin container -->
 
-    <!-- Icono de Venezuela (decorativo) -->
-    <div style="display: flex; justify-content: center; margin: 40px 0 10px;">
-        <img src="mapadevenezuela.png" alt="Mapa de Venezuela" style="max-width: 120px; opacity: 0.5;">
-    </div>
-
-</main>
-
+<!-- ========== FOOTER (CRÉDITOS Y AGRADECIMIENTOS) ========== -->
 <footer>
-    <div class="container footer-content">
-        <div class="credits">
-            <a href="https://jhonmalorne.github.io/nexus.net/" target="_blank">
-                <img src="logomarketin.jpeg" alt="Nexus Marketing" onerror="this.src='https://via.placeholder.com/30x30?text=Nexus'"> Nexus marketing.net
-            </a>
-            <span style="color: #777;">|</span>
-            <a href="https://losguayosdigital.com/" target="_blank" style="background: transparent; padding:0; color: #ccc;">
-                📢 Agradecimiento a Los Guayos Digital
-            </a>
+    <div class="footer-inner">
+        <div class="footer-col">
+            <img src="logovarietyvida.jpeg" alt="Variety Vida" onerror="this.src='https://via.placeholder.com/60?text=VV'">
+            <p><i class="fas fa-check-circle"></i> Calidad premium</p>
         </div>
-        <div class="venezuela-icon">
-            <img src="mapadevenezuela.png" alt="Vzla">
-            <span>Hecho en Venezuela · 2025</span>
+        <div class="footer-col">
+            <p><i class="fas fa-crown"></i> Diseñado por <a href="https://jhonmalorne.github.io/nexus.net/" target="_blank"><strong>Nexus marketing.net</strong></a></p>
+            <p><i class="fas fa-phone-alt"></i> Nexus: 0424-4525765</p>
+            <p><i class="fas fa-heart"></i> Apoyo: <a href="https://losguayosdigital.com/" target="_blank">Los Guayos digital</a></p>
+            <p><i class="fas fa-star"></i> Gracias por su directorio comercial</p>
+        </div>
+        <div class="footer-col venezuela-badge">
+            <img src="mapadevenezuela.png" alt="Mapa de Venezuela" onerror="this.src='https://via.placeholder.com/50?text=VE'">
+            <span>Hecho en Venezuela con orgullo</span>
         </div>
     </div>
-    <div class="container" style="text-align: center; margin-top: 30px; font-size: 0.9rem; color: #888;">
-        <p>📞 WhatsApp: +58 424-4525765 | 📧 varietyvida@contacto.com</p>
-        <p>📦 Todos los precios están sujetos a disponibilidad y cambio sin previo aviso.</p>
+    <div class="copyright">
+        © 2025 Variety Vida · Todos los derechos reservados.
     </div>
 </footer>
 
-<!-- JavaScript: acordeón y QR -->
+<!-- WHATSAPP FLOTANTE (ACCIÓN RÁPIDA) -->
+<a href="https://wa.me/584244525765?text=Hola%20Variety%20Vida%2C%20quiero%20hacer%20un%20pedido" class="float-wa" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- ========== JAVASCRIPT: DESPLEGAR CATEGORÍAS ========== -->
 <script>
-    (function() {
-        // 1. Generar QR para pago móvil
-        if (document.getElementById('qr-pagomovil')) {
-            var qrData = 'Pago móvil: 04244525765 / Banco Mercantil / Documento 16897477';
-            new QRCode(document.getElementById('qr-pagomovil'), {
-                text: qrData,
-                width: 140,
-                height: 140,
-                colorDark: '#b3422d',
-                colorLight: '#ffffff',
-                correctLevel: QRCode.CorrectLevel.H
-            });
-        }
+    // Función para abrir/cerrar categorías
+    function toggleCategoria(id) {
+        const elemento = document.getElementById(id);
+        elemento.classList.toggle('abierto');
+    }
 
-        // 2. Funcionalidad de acordeón para categorías
-        const categorias = document.querySelectorAll('.categoria');
-        categorias.forEach(cat => {
-            const header = cat.querySelector('.cat-header');
-            const content = cat.querySelector('.cat-content');
-            const icon = header.querySelector('.toggle-icon i');
-
-            header.addEventListener('click', () => {
-                // Cerrar otras (opcional, comentar si se desea múltiples abiertas)
-                // Si quieres que solo una esté abierta a la vez, descomenta:
-                /*
-                categorias.forEach(c => {
-                    if (c !== cat) {
-                        c.querySelector('.cat-content').classList.remove('open');
-                        c.querySelector('.toggle-icon i').className = 'fas fa-chevron-down';
-                    }
-                });
-                */
-
-                content.classList.toggle('open');
-                if (content.classList.contains('open')) {
-                    icon.className = 'fas fa-chevron-up';
-                } else {
-                    icon.className = 'fas fa-chevron-down';
-                }
-            });
-        });
-
-        // 3. Fallback para imágenes que no carguen
-        document.querySelectorAll('img').forEach(img => {
-            img.onerror = function() {
-                this.src = 'https://via.placeholder.com/150x150?text=Variety';
-            };
-        });
-    })();
+    // Para que la primera categoría se muestre abierta al cargar (experiencia de usuario)
+    window.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('cat-dulces').classList.add('abierto');
+    });
 </script>
 
-<!-- Estilo adicional para fondo de imágenes de productos -->
-<style>
-    .product-img {
-        background-color: #f0d9d4;
-        background-size: cover;
-        background-position: center;
-    }
-</style>
-
+<!-- Nota: las imágenes onerror son solo para desarrollo, en producción todas deben existir -->
 </body>
 </html>
